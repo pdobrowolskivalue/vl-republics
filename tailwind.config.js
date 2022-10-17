@@ -12,6 +12,7 @@ module.exports = {
       'vlr-dark': 'hsl(243,80%,9.8%)',
     },
     fontFamily: {
+      ...defaultTheme.fontFamily,
       sans: ['Poppins', ...defaultTheme.fontFamily.sans],
     },
   },
