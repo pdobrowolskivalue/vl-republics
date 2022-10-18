@@ -4,26 +4,25 @@ import Image from 'next/image'
 import Link from 'next/link'
 import tw from 'twin.macro'
 
-import BlockchainBackground from '../assets/images/blockchain-background.webp'
-import CreateRepublicBackground from '../assets/images/create-republic-background.webp'
-import FrontendBackground from '../assets/images/frontend-background.webp'
-import MLBackground from '../assets/images/ml-background.webp'
-import SEOBackground from '../assets/images/seo-background.webp'
-import { BlockchainBadge, FrontendBadge, MLBadge, SeoBadge } from '../components/badges'
-import { Access, Create, Honors, Rocket } from '../components/big-icons'
-import { BlockchainMotive, FrontendMotive, SeoMotive } from '../components/motives'
-import { MLMotive } from '../components/motives/MLMotive'
+import BlockchainBackground from '@assets/images/blockchain-background.webp'
+import CreateRepublicBackground from '@assets/images/create-republic-background.webp'
+import FrontendBackground from '@assets/images/frontend-background.webp'
+import MLBackground from '@assets/images/ml-background.webp'
+import SEOBackground from '@assets/images/seo-background.webp'
+import { BlockchainBadge, FrontendBadge, MLBadge, SeoBadge } from '@components/badges'
+import { Access, Create, Honors, Rocket } from '@components/big-icons'
+import { BlockchainMotive, FrontendMotive, MLMotive, SeoMotive } from '@components/motives'
 
 const Grid = tw.div`
   flex items-center justify-center w-full flex-col gap-4
-  sm:(w-full flex-row flex-wrap)
+  md:(flex-row flex-wrap)
 `
 
 const Card = tw.div`
-  p-8 flex items-center justify-center
-  border border-solid border-vlr-mild bg-vlr-backdrop max-w-[584px] h-[210px] rounded-2xl
-
-  [> p]:(m-0)
+  p-4 py-8 md:p-8 flex flex-col md:flex-row items-center justify-center
+  border border-solid border-vlr-mild bg-vlr-backdrop max-w-[584px] md:h-[210px] rounded-2xl
+  [> .sign]:(max-w-[120px] m-0 md:mr-12 mb-6)
+  [> p]:(m-0 text-center md:text-left)
 
   transition-colors duration-150
 
@@ -31,11 +30,13 @@ const Card = tw.div`
 `
 
 const Badge = tw.div`
-  m-8
+  m-4 w-28
+  md:m-6 md:w-32
+  lg:m-8 lg:w-36
 `
 
 const Container = tw.div`
-  max-w-[870px] text-center
+  max-w-[870px] text-center px-8 md:px-0
 `
 
 const LinkButton = tw.a`
@@ -45,6 +46,8 @@ const LinkButton = tw.a`
 const Hero = tw.div`
   relative w-full flex items-center justify-center
   border-t border-t-vlr-accent/30
+
+  [> h2]:(text-center)
 `
 
 const Layers = tw.div`
@@ -71,7 +74,7 @@ const Home: NextPage = () => {
 
       <main tw="py-16 flex flex-1 flex-col items-center min-h-screen">
         <Container tw="my-16">
-          <div tw="mb-8 flex items-center justify-center">
+          <div tw="mb-8 flex flex-wrap items-center justify-center">
             <Badge>
               <SeoBadge />
             </Badge>
@@ -85,9 +88,8 @@ const Home: NextPage = () => {
               <MLBadge />
             </Badge>
           </div>
-          <p tw="mb-8 text-3xl text-center text-vlr-accent">
-            Witamy w naszych Republikach! Jesteśmy po dobrej
-            <br /> technologicznej stronie mocy. May the Value be with you!
+          <p tw="mb-8 text-2xl lg:text-3xl text-center text-vlr-accent">
+            Witamy w naszych Republikach! Jesteśmy po dobrej technologicznej stronie mocy. May the Value be with you!
           </p>
           <p tw="mb-16 text-center text-[18px]">
             Ustanowiliśmy własne terytoria technologiczne z Komandorami na czele. Nasze Republiki realizują kwartalne
@@ -113,7 +115,13 @@ const Home: NextPage = () => {
               <BlockchainMotive />
             </div>
             <div tw="z-10">
-              <Image src={BlockchainBackground} alt="background" layout="fill" />
+              <Image
+                src={BlockchainBackground}
+                alt="background"
+                layout="fill"
+                objectFit="cover"
+                objectPosition="center"
+              />
             </div>
           </Layers>
         </Hero>
@@ -131,7 +139,13 @@ const Home: NextPage = () => {
               <FrontendMotive />
             </div>
             <div tw="z-10">
-              <Image src={FrontendBackground} alt="background" layout="fill" />
+              <Image
+                src={FrontendBackground}
+                alt="background"
+                layout="fill"
+                objectFit="cover"
+                objectPosition="center"
+              />
             </div>
           </Layers>
         </Hero>
@@ -148,35 +162,45 @@ const Home: NextPage = () => {
             <div tw="z-20">
               <SeoMotive />
             </div>
-            <div tw="z-10">
-              <Image src={SEOBackground} alt="background" layout="fill" />
-            </div>
+            <Image
+              tw="z-10"
+              src={SEOBackground}
+              alt="background"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+            />
           </Layers>
         </Hero>
 
         <Hero>
           <h2 tw="z-50 text-6xl font-weight[600] text-shadow[0 8px 15px rgb(0 0 0)]">Machine Learning</h2>
           <Layers>
-            <Link href="/republic/machine-learning">
+            <Link href="/republic/machineLearning">
               <LinkButton tw="z-40 bottom-14 absolute left-[50%] translate-x-[-50%] py-2">
                 Dowiedz się więcej
               </LinkButton>
             </Link>
             <GradientOverlay tw="z-30" />
-            <div tw="z-20">
+            <div tw="z-20 px-6 md:px-0">
               <MLMotive />
             </div>
-            <div tw="z-10">
-              <Image src={MLBackground} alt="background" layout="fill" />
-            </div>
+            <Image
+              tw="z-10"
+              src={MLBackground}
+              alt="background"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+            />
           </Layers>
         </Hero>
 
-        <div tw="my-16">
+        <Container tw="my-16 max-w-full">
           <h2 tw="text-4xl text-center font-semibold mb-16">Co mogę w ramach republik?</h2>
           <Grid>
             <Card>
-              <div tw="w-[260px] mr-12">
+              <div className="sign" tw="w-[260px] mr-12">
                 <Rocket />
               </div>
               <p>
@@ -186,7 +210,7 @@ const Home: NextPage = () => {
             </Card>
 
             <Card>
-              <div tw="w-[220px] mr-12">
+              <div className="sign" tw="w-[220px] mr-12">
                 <Access />
               </div>
               <p>
@@ -196,20 +220,20 @@ const Home: NextPage = () => {
             </Card>
 
             <Card>
-              <div tw="w-[180px] mr-12">
+              <div className="sign" tw="w-[180px] mr-12">
                 <Create />
               </div>
               <p>Ogłosić własną republikę - jeśli w naszym wszechświecie brakuje ważnego obszaru</p>
             </Card>
 
             <Card>
-              <div tw="w-[140px] mr-12">
+              <div className="sign" tw="w-[140px] mr-12">
                 <Honors />
               </div>
               <p>Zostań Komandorem i rozwijaj się w nowym obszarze technologicznym</p>
             </Card>
           </Grid>
-        </div>
+        </Container>
       </main>
 
       <Footer>
@@ -230,7 +254,13 @@ const Home: NextPage = () => {
           </Link>
         </Container>
         <div tw="z-[-1] absolute inset-0">
-          <Image src={CreateRepublicBackground} alt="Stwórz własną republikę" layout="fill" />
+          <Image
+            src={CreateRepublicBackground}
+            alt="Stwórz własną republikę"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+          />
         </div>
       </Footer>
     </div>

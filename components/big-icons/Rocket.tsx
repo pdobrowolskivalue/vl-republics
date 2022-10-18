@@ -40,99 +40,93 @@ export const Rocket = () => (
       fill="#101129"
       stroke="#33E5FF"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M68.3599 78.4405H57.3181L58.296 65.4565H67.3821L68.3599 78.4405Z"
       fill="#101129"
       stroke="#33E5FF"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M71.6021 80.3845H60.5661L61.5382 67.4062H70.6301L71.6021 80.3845Z"
       fill="#101129"
       stroke="#33E5FF"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M74.6556 65.8224L86.0291 68.784C86.0291 68.784 90.2662 54.325 88.3163 49.6254C86.4865 45.1602 74.6328 40.7407 74.6328 40.7407L74.6556 65.8224Z"
       fill="#101129"
       stroke="#33E5FF"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M84.2107 63.5126L76.1824 60.6025"
       stroke="#33E5FF"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M57.2438 65.8224L45.8704 68.784C45.8704 68.784 41.6332 54.325 43.5831 49.6254C45.4072 45.1602 57.2667 40.7407 57.2667 40.7407L57.2438 65.8224Z"
       fill="#101129"
       stroke="#33E5FF"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M47.6716 63.5126L55.6999 60.6025"
       stroke="#33E5FF"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M56.2317 68.9955L54.6535 36.1726C54.6535 29.9637 65.9412 18.5749 65.9412 18.5749C65.9412 18.5749 77.2231 29.9637 77.2231 36.1726L75.6449 68.9955H56.2317Z"
       fill="#101129"
       stroke="#33E5FF"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M54.0875 62.5864L52.1548 22.4912C52.1548 14.9158 65.9413 1 65.9413 1C65.9413 1 79.722 14.9158 79.722 22.4912L77.795 62.5864H54.0875Z"
       fill="#101129"
       stroke="#33E5FF"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M65.9412 42.3415C71.0351 42.3415 75.1646 38.2127 75.1646 33.1196C75.1646 28.0265 71.0351 23.8976 65.9412 23.8976C60.8472 23.8976 56.7178 28.0265 56.7178 33.1196C56.7178 38.2127 60.8472 42.3415 65.9412 42.3415Z"
       fill="#101129"
       stroke="#33E5FF"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M65.9412 39.5344C69.4845 39.5344 72.3569 36.6624 72.3569 33.1196C72.3569 29.5768 69.4845 26.7048 65.9412 26.7048C62.3978 26.7048 59.5254 29.5768 59.5254 33.1196C59.5254 36.6624 62.3978 39.5344 65.9412 39.5344Z"
       stroke="#33E5FF"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path d="M60.5661 12.2403C60.5661 12.2403 56.3232 18.9867 56.3232 21.1078L60.5661 12.2403Z" fill="#101129" />
     <path
       d="M60.5661 12.2403C60.5661 12.2403 56.3232 18.9867 56.3232 21.1078"
       stroke="#33E5FF"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
-    <path
-      d="M65.9411 45.063V66.6514"
-      stroke="#33E5FF"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
+    <path d="M65.9411 45.063V66.6514" stroke="#33E5FF" stroke-width="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )
