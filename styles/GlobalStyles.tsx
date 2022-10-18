@@ -1,4 +1,3 @@
-import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 import tw, { GlobalStyles as BaseStyles } from 'twin.macro'
 
@@ -6,7 +5,7 @@ const CustomStyles = createGlobalStyle({
   body: {
     ...tw`
       antialiased
-      dark:(text-white bg-black)
+      dark:(text-white bg-vlr-dark)
     `,
   },
 })
