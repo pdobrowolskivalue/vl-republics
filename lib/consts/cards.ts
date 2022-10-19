@@ -1,11 +1,5 @@
 import { Access, Create, Honors, Rocket } from '@components/big-icons'
-
-enum Cards {
-  travel = 'travel',
-  access = 'access',
-  create = 'create',
-  honors = 'honors',
-}
+import { Cards } from '@type/cards'
 
 export const gridCards = {
   [Cards.travel]: {

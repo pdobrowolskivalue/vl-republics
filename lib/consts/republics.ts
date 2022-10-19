@@ -4,7 +4,7 @@ import MLBackground from '@assets/images/ml-background.webp'
 import SEOBackground from '@assets/images/seo-background.webp'
 import { BlockchainBadge, FrontendBadge, MLBadge, SeoBadge } from '@components/badges'
 import { BlockchainMotive, FrontendMotive, MLMotive, SeoMotive } from '@components/motives'
-import { Republics } from 'types/republic'
+import { Republics } from '@type/republic'
 
 export const republics = {
   [Republics.blockchain]: {

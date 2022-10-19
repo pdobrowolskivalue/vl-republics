@@ -1,7 +1,7 @@
 import { Container } from '@components/common/Container'
 import { Main } from '@components/common/Main'
 import { getRepublic } from '@lib/api/hygraph'
-import { RepublicData, Republics } from 'types/republic'
+import { RepublicData, Republics } from '@type/republic'
 
 type RepublicProps = {
   republic: RepublicData
