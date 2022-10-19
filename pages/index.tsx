@@ -1,66 +1,21 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import tw from 'twin.macro'
 
-import BlockchainBackground from '@assets/images/blockchain-background.webp'
-import CreateRepublicBackground from '@assets/images/create-republic-background.webp'
-import FrontendBackground from '@assets/images/frontend-background.webp'
-import MLBackground from '@assets/images/ml-background.webp'
-import SEOBackground from '@assets/images/seo-background.webp'
 import { BlockchainBadge, FrontendBadge, MLBadge, SeoBadge } from '@components/badges'
-import { Access, Create, Honors, Rocket } from '@components/big-icons'
-import { BlockchainMotive, FrontendMotive, MLMotive, SeoMotive } from '@components/motives'
-
-const Grid = tw.div`
-  flex items-center justify-center w-full flex-col gap-4
-  md:(flex-row flex-wrap)
-`
-
-const Card = tw.div`
-  p-4 py-8 md:p-8 flex flex-col md:flex-row items-center justify-center
-  border border-solid border-vlr-mild bg-vlr-backdrop max-w-[584px] md:h-[210px] rounded-2xl
-  [> .sign]:(max-w-[120px] m-0 md:mr-12 mb-6)
-  [> p]:(m-0 text-center md:text-left)
-
-  transition-colors duration-150
-
-  dark:border-vlr-mild
-`
+import CardGrid from '@components/CardGrid'
+import { Container } from '@components/common/Container'
+import { LinkButton } from '@components/common/LinkButton'
+import { Main } from '@components/common/Main'
+import Footer from '@components/Footer'
+import Hero from '@components/Hero'
+import { republics } from '@lib/consts/republics'
 
 const Badge = tw.div`
   m-4 w-28
   md:m-6 md:w-32
   lg:m-8 lg:w-36
-`
-
-const Container = tw.div`
-  max-w-[870px] text-center px-8 md:px-0
-`
-
-const LinkButton = tw.a`
-  border rounded-3xl py-3 px-7 text-center cursor-pointer
-`
-
-const Hero = tw.div`
-  relative w-full flex items-center justify-center
-  border-t border-t-vlr-accent/30
-
-  [> h2]:(text-center)
-`
-
-const Layers = tw.div`
-  h-[520px]
-  [> div]:(absolute inset-0 flex items-center justify-center)
-`
-
-const GradientOverlay = tw.div`
-  bg-gradient-to-b from-transparent via-transparent to-vlr-dark
-`
-
-const Footer = tw.div`
-  relative w-full flex items-center justify-center h-[500px]
 `
 
 const Home: NextPage = () => {
@@ -72,7 +27,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main tw="py-16 flex flex-1 flex-col items-center min-h-screen">
+      <Main>
         <Container tw="my-16">
           <div tw="mb-8 flex flex-wrap items-center justify-center">
             <Badge>
@@ -102,167 +57,17 @@ const Home: NextPage = () => {
           </Link>
         </Container>
 
-        <Hero>
-          <h2 tw="z-50 text-6xl font-weight[600] text-shadow[0 8px 15px rgb(0 0 0)]">Blockchain</h2>
-          <Layers>
-            <Link href="/republic/blockchain">
-              <LinkButton tw="z-40 bottom-14 absolute left-[50%] translate-x-[-50%] py-2">
-                Dowiedz się więcej
-              </LinkButton>
-            </Link>
-            <GradientOverlay tw="z-30" />
-            <div tw="z-20">
-              <BlockchainMotive />
-            </div>
-            <div tw="z-10">
-              <Image
-                src={BlockchainBackground}
-                alt="background"
-                layout="fill"
-                objectFit="cover"
-                objectPosition="center"
-              />
-            </div>
-          </Layers>
-        </Hero>
+        {Object.entries(republics).map(([k, v]) => {
+          return <Hero key={k} id={k} {...v} />
+        })}
 
-        <Hero>
-          <h2 tw="z-50 text-6xl font-weight[600] text-shadow[0 8px 15px rgb(0 0 0)]">Front End</h2>
-          <Layers>
-            <Link href="/republic/frontend">
-              <LinkButton tw="z-40 bottom-14 absolute left-[50%] translate-x-[-50%] py-2">
-                Dowiedz się więcej
-              </LinkButton>
-            </Link>
-            <GradientOverlay tw="z-30" />
-            <div tw="z-20">
-              <FrontendMotive />
-            </div>
-            <div tw="z-10">
-              <Image
-                src={FrontendBackground}
-                alt="background"
-                layout="fill"
-                objectFit="cover"
-                objectPosition="center"
-              />
-            </div>
-          </Layers>
-        </Hero>
-
-        <Hero>
-          <h2 tw="z-50 text-6xl font-weight[600] text-shadow[0 8px 15px rgb(0 0 0)]">SEO</h2>
-          <Layers>
-            <Link href="/republic/seo">
-              <LinkButton tw="z-40 bottom-14 absolute left-[50%] translate-x-[-50%] py-2">
-                Dowiedz się więcej
-              </LinkButton>
-            </Link>
-            <GradientOverlay tw="z-30" />
-            <div tw="z-20">
-              <SeoMotive />
-            </div>
-            <Image
-              tw="z-10"
-              src={SEOBackground}
-              alt="background"
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
-            />
-          </Layers>
-        </Hero>
-
-        <Hero>
-          <h2 tw="z-50 text-6xl font-weight[600] text-shadow[0 8px 15px rgb(0 0 0)]">Machine Learning</h2>
-          <Layers>
-            <Link href="/republic/machineLearning">
-              <LinkButton tw="z-40 bottom-14 absolute left-[50%] translate-x-[-50%] py-2">
-                Dowiedz się więcej
-              </LinkButton>
-            </Link>
-            <GradientOverlay tw="z-30" />
-            <div tw="z-20 px-6 md:px-0">
-              <MLMotive />
-            </div>
-            <Image
-              tw="z-10"
-              src={MLBackground}
-              alt="background"
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
-            />
-          </Layers>
-        </Hero>
-
-        <Container tw="my-16 max-w-full">
+        <Container tw="my-16" fluid>
           <h2 tw="text-4xl text-center font-semibold mb-16">Co mogę w ramach republik?</h2>
-          <Grid>
-            <Card>
-              <div className="sign" tw="w-[260px] mr-12">
-                <Rocket />
-              </div>
-              <p>
-                Podróżuj między republikami i próbuj swoich sił na nowych terytoriach! Sięgnij po wiedze wypracowaną w
-                ramach Republik.
-              </p>
-            </Card>
-
-            <Card>
-              <div className="sign" tw="w-[220px] mr-12">
-                <Access />
-              </div>
-              <p>
-                Dołączaj do inicjatyw Republik, jeżeli szczególnie czujesz mięte do danej republiki zgłoś akces aby ją
-                współtworzyć.
-              </p>
-            </Card>
-
-            <Card>
-              <div className="sign" tw="w-[180px] mr-12">
-                <Create />
-              </div>
-              <p>Ogłosić własną republikę - jeśli w naszym wszechświecie brakuje ważnego obszaru</p>
-            </Card>
-
-            <Card>
-              <div className="sign" tw="w-[140px] mr-12">
-                <Honors />
-              </div>
-              <p>Zostań Komandorem i rozwijaj się w nowym obszarze technologicznym</p>
-            </Card>
-          </Grid>
+          <CardGrid />
         </Container>
-      </main>
+      </Main>
 
-      <Footer>
-        <Container tw="z-10">
-          <h2 tw="text-4xl font-weight[600]">Stwórz własną Republikę!</h2>
-          <p tw="my-12">
-            Consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-            ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut
-            labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,{' '}
-          </p>
-          <Link href="/create">
-            <LinkButton tw="border-none font-semibold inline-flex items-center justify-center bg-vlr-accent text-black px-5 py-3">
-              <span>Stwórz republikę</span>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" tw="ml-1 w-5 h-5">
-                <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
-              </svg>
-            </LinkButton>
-          </Link>
-        </Container>
-        <div tw="z-[-1] absolute inset-0">
-          <Image
-            src={CreateRepublicBackground}
-            alt="Stwórz własną republikę"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-          />
-        </div>
-      </Footer>
+      <Footer />
     </div>
   )
 }

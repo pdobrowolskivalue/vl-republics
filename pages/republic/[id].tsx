@@ -1,20 +1,38 @@
-import { getRepublic } from '@lib/hygraph'
+import { Container } from '@components/common/Container'
+import { Main } from '@components/common/Main'
+import { getRepublic } from '@lib/api/hygraph'
+import { RepublicData, Republics } from 'types/republic'
 
-export default function Republic({ republic }: { republic: any }) {
+type RepublicProps = {
+  republic: RepublicData
+}
+
+export default function Republic({ republic }: RepublicProps) {
   if (!republic) {
-    return <p>Jeszcze nie mamy takiej Republiki</p>
+    return (
+      <Main>
+        <Container>
+          <p>Jeszcze nie mamy takiej Republiki</p>
+        </Container>
+      </Main>
+    )
   }
 
   return (
-    <main>
-      Republika
-      <pre>{JSON.stringify(republic, null, 2)}</pre>
-    </main>
+    <Main>
+      <Container>
+        Republika
+        <code>
+          <pre>{JSON.stringify(republic, null, 2)}</pre>
+        </code>
+      </Container>
+    </Main>
   )
 }
 
-export async function getStaticProps({ params }: { params: any }) {
-  const data = await getRepublic(params.id, true)
+export async function getStaticProps({ params }: { params: { id: string } }) {
+  const id = params.id.replace(/-/g, '_')
+  const data = await getRepublic(id, process.env.VERCEL_ENV !== 'production')
 
   return {
     props: {
@@ -25,12 +43,7 @@ export async function getStaticProps({ params }: { params: any }) {
 
 export async function getStaticPaths() {
   return {
-    paths: [
-      { params: { id: 'blockchain' } },
-      { params: { id: 'frontend' } },
-      { params: { id: 'seo' } },
-      { params: { id: 'machineLearning' } },
-    ],
+    paths: Object.keys(Republics).map(id => ({ params: { id } })),
     fallback: true,
   }
 }
