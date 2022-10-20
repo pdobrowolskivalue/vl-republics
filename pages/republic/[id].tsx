@@ -8,9 +8,6 @@ type RepublicProps = {
 }
 
 export default function Republic({ republic }: RepublicProps) {
-  if (!republic) {
-  }
-
   return (
     <Main>
       <Container>
