@@ -32,7 +32,7 @@ const GradientOverlay = tw.div`
 
 const BadgeContainer = tw.div`
   z-40 w-20 top-14 left-1/2 translate-x-[-50%] lg:left-28 lg:top-1/2 lg:translate-y-[-50%]
-  after:(z-[-1] absolute inset-0 bg-black/10 shadow-lg backdrop-blur-sm clip-path[polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%)])
+  after:(z-[-1] absolute -inset-2 bg-black/10 shadow-lg backdrop-blur-sm clip-path[polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%)] rounded-2xl)
 `
 
 const Hero = ({ id, title, badge: Badge, motive: Motive, background }: HeroProps) => {

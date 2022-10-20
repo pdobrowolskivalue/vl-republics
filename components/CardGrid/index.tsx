@@ -3,7 +3,7 @@ import tw from 'twin.macro'
 import { gridCards } from '@lib/consts/cards'
 
 const Grid = tw.div`
-  flex items-center justify-center w-full flex-col gap-4
+  grid grid-cols-1 xl:grid-cols-2 items-center justify-center w-full gap-4
   md:(flex-row flex-wrap)
 `
 
