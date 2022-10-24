@@ -47,7 +47,7 @@ const Hero = ({ id, title, badge: Badge, motive: Motive, background }: HeroProps
           <LinkButton tw="z-40 bottom-14 absolute left-[50%] translate-x-[-50%] py-2">Dowiedz się więcej</LinkButton>
         </Link>
         <GradientOverlay className="full-cover" tw="z-30" />
-        <div className="full-cover" tw="z-20 px-5 md:px-0">
+        <div className="full-cover" tw="z-20 px-5 md:px-0 max-w-[738px] mx-auto">
           <Motive />
         </div>
         <div className="full-cover" tw="z-10">
