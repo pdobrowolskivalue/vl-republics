@@ -8,16 +8,6 @@ type RepublicProps = {
 }
 
 export default function Republic({ republic }: RepublicProps) {
-  if (!republic) {
-    return (
-      <Main>
-        <Container>
-          <p>Jeszcze nie mamy takiej Republiki</p>
-        </Container>
-      </Main>
-    )
-  }
-
   return (
     <Main>
       <Container>
@@ -30,7 +20,16 @@ export default function Republic({ republic }: RepublicProps) {
   )
 }
 
-export async function getStaticProps({ params }: { params: { id: string } }) {
+export async function getStaticProps({ params }: { params: { id: Republics } }) {
+  if (!Republics[params.id]) {
+    return {
+      redirect: {
+        destination: '/republic/404',
+        permanent: false,
+      },
+    }
+  }
+
   const id = params.id.replace(/-/g, '_')
   const data = await getRepublic(id, process.env.VERCEL_ENV !== 'production')
 
