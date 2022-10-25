@@ -1,13 +1,17 @@
+import Image from 'next/image'
 import tw from 'twin.macro'
 
+import RepublicGoals from '@components/big-icons/RepublicGoals'
+import { LinkButton } from '@components/common/LinkButton'
 import { Paragraph, ParagraphSmall, Title, TitleSmall } from '@components/common/TextStyles'
 import { SeoMotive } from '@components/motives'
 import { Background } from '@components/Republic/Background'
-import { WelcomeCard } from '@components/Republic/WelcomeCard'
-import RepublicGoals from '@components/big-icons/RepublicGoals'
 import MaterialCard from '@components/Republic/MaterialCard'
-import { LinkButton } from '@components/common/LinkButton'
+import { WelcomeCard } from '@components/Republic/WelcomeCard'
 
+import { WhoIsWhoCard } from './WhoIsWhoCard'
+
+import SeoBackground from '../../assets/images/seo-background.webp'
 import { RepublicProps } from '../../pages/republic/[id]'
 
 const Container = tw.div`
@@ -111,11 +115,14 @@ const RepublicLayout = ({
         </ContentColumn>
       </PartContainer>
 
-      <PartContainer>
-        <Background url="https://i.wpimg.pl/1200x/d.wpimg.pl/1361730298--935151286/kosmos.jpg" />
-        <ContentColumn>
+      <PartContainer tw="relative">
+        <div tw="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-vlr-dark z-20 h-full" />
+        <div tw="absolute inset-0 z-10 h-full">
+          <Image src={SeoBackground} alt="background" layout="fill" objectFit="cover" objectPosition="center" />
+        </div>
+        <ContentColumn tw="py-16 z-30">
           <Block tw="max-w-[996px]">
-            <Title tw="text-vlr-text-light">Materiały</Title>
+            <Title tw="text-3xl font-semibold text-white mb-14">Materiały</Title>
             <div tw="grid grid-flow-row gap-[20px] w-full">
               {/*TODO map materials*/}
               <MaterialCard
