@@ -6,8 +6,8 @@ import { RepublicAboutUs } from '@components/big-icons/RepublicAboutUs'
 import { RepublicRulesTips } from '@components/big-icons/RepublicRulesTips'
 
 const Container = tw.div`
-  pt-[50px] pb-[32px] px-[32px]
-  bg-[#FFFFFF] rounded-md shadow-[0 1px 0 #E5E5EB]
+  pt-12 pb-8 px-8
+  bg-white rounded-md shadow-[0 1px 0 vlr-shadow]
   w-[290px] max-w-[290px]
   flex flex-col
   gap-[27px]

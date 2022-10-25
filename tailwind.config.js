@@ -11,8 +11,7 @@ module.exports = {
       'vlr-backdrop': 'hsl(229.09, 70.97%, 12.16%)', //#091135
       'vlr-dark': 'hsl(243, 80%, 9.8%)', //#07052D
       'vlr-bg-light': 'hsl(240, 40%, 98%)', //#F8F8FC
-      'vlr-text-light': 'hsl(0, 0%, 100%)', //#FFF
-      'vlr-text-dark': 'hsl(242, 75%, 9%)', //#070628
+      'vlr-shadow': 'hsl(240, 13%, 91%)', //#E5E5EB
     },
     fontFamily: {
       ...defaultTheme.fontFamily,
