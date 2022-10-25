@@ -4,7 +4,6 @@ import { Paragraph, ParagraphSmall, Title, TitleSmall } from '@components/common
 import { SeoMotive } from '@components/motives'
 import { Background } from '@components/Republic/Background'
 import { WelcomeCard } from '@components/Republic/WelcomeCard'
-import { WhoIsWhoCard } from '@components/Republic/WhoIsWhoCard'
 import RepublicGoals from '@components/big-icons/RepublicGoals'
 import MaterialCard from '@components/Republic/MaterialCard'
 import { LinkButton } from '@components/common/LinkButton'
@@ -45,7 +44,6 @@ const RepublicLayout = ({
     <Container>
       <PartContainer>
         <Background url="https://i.wpimg.pl/1200x/d.wpimg.pl/1361730298--935151286/kosmos.jpg" />
-
         <ContentColumn>
           <Block tw="max-w-[960px]">
             <SeoMotive />
@@ -67,7 +65,6 @@ const RepublicLayout = ({
           </Block>
           <Block>
             <div tw="grid grid-cols-4 gap-4 mt-[17px]">
-              {/*TODO: map cards*/}
               {welcomeCards.map(card => (
                 <WelcomeCard key={card.id} title={card.title} description={card.description} iconUrl={card.iconUrl} />
               ))}
