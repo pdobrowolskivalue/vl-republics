@@ -23,10 +23,6 @@ const Card = tw.a`
   dark:border-vlr-mild
 `
 
-const Badge = tw.div`
-  m-8
-`
-
 const Home: NextPage = () => {
   return (
     <div tw="px-8">

@@ -34,8 +34,17 @@ const GET_REPUBLIC = `
   query Republics($republicId: RepublicType!) {
     republic(where: {republicType: $republicId}) {
       leadText
+      leadAuthor
       welcomeHeader
       welcomeDescription
+      welcomeCards {
+        ... on WelcomeCard {
+          id
+          title
+          description
+          iconUrl
+        }
+      }
       whoHeader
       whoDescription
       persons {
@@ -46,8 +55,8 @@ const GET_REPUBLIC = `
           description
         }
       }
+      reachedGoals
       currentGoals
-      futureGoals
     }
   }
 `

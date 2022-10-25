@@ -1,23 +1,13 @@
-import { Container } from '@components/common/Container'
-import { Main } from '@components/common/Main'
 import { getRepublic } from '@lib/api/hygraph'
 import { RepublicData, Republics } from '@type/republic'
+import RepublicLayout from '@components/Republic'
 
-type RepublicProps = {
+export type RepublicProps = {
   republic: RepublicData
 }
 
 export default function Republic({ republic }: RepublicProps) {
-  return (
-    <Main>
-      <Container>
-        Republika
-        <code>
-          <pre>{JSON.stringify(republic, null, 2)}</pre>
-        </code>
-      </Container>
-    </Main>
-  )
+  return <RepublicLayout republic={republic}></RepublicLayout>
 }
 
 export async function getStaticProps({ params }: { params: { id: Republics } }) {
