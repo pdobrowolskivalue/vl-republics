@@ -6,11 +6,10 @@ import { RepublicAboutUs } from '@components/big-icons/RepublicAboutUs'
 import { RepublicRulesTips } from '@components/big-icons/RepublicRulesTips'
 
 const Container = tw.div`
-  pt-12 pb-8 px-8 mr-10
+  pt-12 pb-8 px-8 mx-5
   bg-white rounded-md shadow-[0 1px 0 vlr-shadow]
   w-[290px] max-w-[290px]
   flex flex-col
-  gap-[27px]
 `
 
 const renderIcon = ({ iconUrl }: { iconUrl: string }) => {
