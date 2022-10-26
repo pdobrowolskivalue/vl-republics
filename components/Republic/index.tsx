@@ -58,7 +58,9 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
       <PartContainer>
         <div tw="absolute z-30 left-28 top-28 max-w-[117px] grid gap-10">
           <Link href="/">
-            <div tw="text-sm cursor-pointer before:content-['<   '] before:text-4xl before:align-middle">powrót</div>
+            <div tw="text-sm cursor-pointer before:content-['<'] before:pr-3 before:text-4xl before:align-middle">
+              powrót
+            </div>
           </Link>
           {renderBadge({ republicType })}
         </div>
