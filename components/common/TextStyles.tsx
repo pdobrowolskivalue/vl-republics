@@ -5,7 +5,7 @@ export const TitleSmall = tw.div`
 `
 
 export const Title = tw.div`
-  font-medium text-xl mb-8 text-vlr-dark text-center
+  font-medium text-3xl mb-8 text-vlr-dark text-center
 `
 
 export const ParagraphSmall = tw.div`

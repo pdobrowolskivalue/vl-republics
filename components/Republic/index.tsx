@@ -1,10 +1,10 @@
-import Image from 'next/image'
 import tw from 'twin.macro'
 
 import RepublicGoals from '@components/big-icons/RepublicGoals'
 import { LinkButton } from '@components/common/LinkButton'
 import { Paragraph, ParagraphSmall, Title, TitleSmall } from '@components/common/TextStyles'
 import Footer from '@components/Footer'
+import { GradientOverlay } from '@components/common/GradientOverlay'
 import { SeoMotive } from '@components/motives'
 import { Background } from '@components/Republic/Background'
 import MaterialCard from '@components/Republic/MaterialCard'
@@ -12,8 +12,6 @@ import { WelcomeCard } from '@components/Republic/WelcomeCard'
 
 import { WhoIsWhoCard } from './WhoIsWhoCard'
 
-import BlockchainBackground from '../../assets/images/blockchain-background.webp'
-import SeoBackground from '../../assets/images/seo-background.webp'
 import { RepublicProps } from '../../pages/republic/[id]'
 
 const Container = tw.div`
@@ -26,6 +24,7 @@ const PartContainer = tw.div`
 
 const ContentColumn = tw.div`
   max-w-[1440px] mx-auto pt-20 pb-28
+  z-50
 `
 
 const Block = tw.div`
@@ -49,7 +48,6 @@ const RepublicLayout = ({
   return (
     <Container>
       <PartContainer>
-        <Background url="https://i.wpimg.pl/1200x/d.wpimg.pl/1361730298--935151286/kosmos.jpg" />
         <ContentColumn>
           <Block tw="max-w-[960px]">
             <SeoMotive />
@@ -59,6 +57,8 @@ const RepublicLayout = ({
             <p tw="font-normal text-2xl leading-9 text-vlr-accent">{leadAuthor}</p>
           </Block>
         </ContentColumn>
+        <GradientOverlay />
+        <Background url="bc_1" />
       </PartContainer>
 
       <PartContainer tw="bg-vlr-bg-light">
@@ -79,12 +79,8 @@ const RepublicLayout = ({
         </ContentColumn>
       </PartContainer>
 
-      <PartContainer tw="relative">
-        <div tw="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-vlr-dark z-20 h-full" />
-        <div tw="absolute inset-0 z-10 h-full">
-          <Image src={BlockchainBackground} alt="background" layout="fill" objectFit="cover" objectPosition="center" />
-        </div>
-        <ContentColumn tw="z-30">
+      <PartContainer>
+        <ContentColumn>
           <Block tw="max-w-[996px]">
             <Title tw="text-white">{whoHeader}</Title>
             <div tw="text-left text-base my-20">{whoDescription}</div>
@@ -100,6 +96,7 @@ const RepublicLayout = ({
             </div>
           </Block>
         </ContentColumn>
+        <Background url="se" />
       </PartContainer>
 
       <PartContainer tw="bg-vlr-bg-light text-vlr-dark">
@@ -120,14 +117,10 @@ const RepublicLayout = ({
         </ContentColumn>
       </PartContainer>
 
-      <PartContainer tw="relative">
-        <div tw="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-vlr-dark z-20 h-full" />
-        <div tw="absolute inset-0 z-10 h-full">
-          <Image src={SeoBackground} alt="background" layout="fill" objectFit="cover" objectPosition="center" />
-        </div>
+      <PartContainer>
         <ContentColumn tw="py-16 z-30">
           <Block tw="max-w-[996px]">
-            <Title tw="text-white">Materiały</Title>
+            <Title tw="text-white mb-14">Materiały</Title>
             <div tw="grid grid-flow-row gap-5 w-full">
               {/*TODO map materials*/}
               <MaterialCard
@@ -157,6 +150,7 @@ const RepublicLayout = ({
             <LinkButton>Więcej materiałów</LinkButton>
           </Block>
         </ContentColumn>
+        <Background url="se" />
       </PartContainer>
       <Footer />
     </Container>
