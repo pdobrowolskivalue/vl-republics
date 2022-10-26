@@ -22,7 +22,9 @@ const fetchAPI = async (query: string, { variables, preview = false }: { variabl
   const json = await res.json()
 
   if (json.errors) {
+    // eslint-disable-next-line no-console
     console.log(process.env.NEXT_EXAMPLE_CMS_GCMS_PROJECT_ID)
+    // eslint-disable-next-line no-console
     console.log(json.errors)
     throw Error('Failed to fetch API')
   }
@@ -37,6 +39,14 @@ const GET_REPUBLIC = `
       leadAuthor
       welcomeHeader
       welcomeDescription
+      welcomeCards {
+        ... on WelcomeCard {
+          id
+          title
+          description
+          iconUrl
+        }
+      }
       whoHeader
       whoDescription
       persons {

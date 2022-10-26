@@ -1,13 +1,17 @@
+import GoogleDocIcon from '../../assets/images/file-type-icons/google-doc.png'
+import GoogleSlidesIcon from '../../assets/images/file-type-icons/google-slides.png'
+import VideoIcon from '../../assets/images/file-type-icons/video-file.png'
+
 const renderFileTypeIcon = ({ fileType }: { fileType: string }) => {
   switch (fileType) {
     case 'Google doc':
-      return '/assets/image/file-type-icons/google-doc.png'
+      return GoogleDocIcon
     case 'Video file':
-      return '/assets/image/file-type-icons/video-file.png'
+      return VideoIcon
     case 'Google slides':
-      return '/assets/image/file-type-icons/google-slides.png'
+      return GoogleSlidesIcon
     default:
-      return '/assets/image/file-type-icons/google-doc.png'
+      return GoogleDocIcon
   }
 }
 
