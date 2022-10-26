@@ -1,6 +1,6 @@
+import RepublicLayout from '@components/Republic'
 import { getRepublic } from '@lib/api/hygraph'
 import { RepublicData, Republics } from '@type/republic'
-import RepublicLayout from '@components/Republic'
 
 export type RepublicProps = {
   republic: RepublicData

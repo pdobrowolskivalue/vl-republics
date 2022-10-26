@@ -1,18 +1,17 @@
 import tw from 'twin.macro'
 
 import RepublicGoals from '@components/big-icons/RepublicGoals'
+import { GradientOverlay } from '@components/common/GradientOverlay'
 import { LinkButton } from '@components/common/LinkButton'
 import { Paragraph, ParagraphSmall, Title, TitleSmall } from '@components/common/TextStyles'
 import Footer from '@components/Footer'
-import { GradientOverlay } from '@components/common/GradientOverlay'
 import { SeoMotive } from '@components/motives'
 import { Background } from '@components/Republic/Background'
 import MaterialCard from '@components/Republic/MaterialCard'
 import { WelcomeCard } from '@components/Republic/WelcomeCard'
+import { RepublicProps } from 'pages/republic/[id]'
 
 import { WhoIsWhoCard } from './WhoIsWhoCard'
-
-import { RepublicProps } from '../../pages/republic/[id]'
 
 const Container = tw.div`
 `
@@ -31,20 +30,11 @@ const Block = tw.div`
   text-center
 `
 
-const RepublicLayout = ({
-  republic: {
-    leadText,
-    leadAuthor,
-    welcomeHeader,
-    welcomeDescription,
-    welcomeCards,
-    whoHeader,
-    whoDescription,
-    persons,
-    reachedGoals,
-    currentGoals,
-  },
-}: RepublicProps) => {
+const RepublicLayout = ({ republic }: RepublicProps) => {
+  if (!republic) {
+    return null
+  }
+
   return (
     <Container>
       <PartContainer>
@@ -53,8 +43,8 @@ const RepublicLayout = ({
             <SeoMotive />
           </Block>
           <Block>
-            <p tw="font-normal text-4xl leading-[60px] max-w-[846px] mx-auto mt-20 mb-7">{leadText}</p>
-            <p tw="font-normal text-2xl leading-9 text-vlr-accent">{leadAuthor}</p>
+            <p tw="font-normal text-4xl leading-[60px] max-w-[846px] mx-auto mt-20 mb-7">{republic.leadText}</p>
+            <p tw="font-normal text-2xl leading-9 text-vlr-accent">{republic.leadAuthor}</p>
           </Block>
         </ContentColumn>
         <GradientOverlay />
@@ -65,13 +55,13 @@ const RepublicLayout = ({
         <ContentColumn tw="pb-28">
           <Block>
             <div tw="text-left max-w-[846px] mx-auto bg-vlr-bg-light rounded-lg px-20 py-10 mt-[-10rem]">
-              <Title>{welcomeHeader}</Title>
-              <Paragraph>{welcomeDescription}</Paragraph>
+              <Title>{republic.welcomeHeader}</Title>
+              <Paragraph>{republic.welcomeDescription}</Paragraph>
             </div>
           </Block>
           <Block>
             <div tw="grid grid-cols-4 gap-4 mt-4">
-              {welcomeCards.map(card => (
+              {republic.welcomeCards.map(card => (
                 <WelcomeCard key={card.id} title={card.title} description={card.description} iconUrl={card.iconUrl} />
               ))}
             </div>
@@ -82,10 +72,10 @@ const RepublicLayout = ({
       <PartContainer>
         <ContentColumn>
           <Block tw="max-w-[996px]">
-            <Title tw="text-white">{whoHeader}</Title>
-            <div tw="text-left text-base my-20">{whoDescription}</div>
+            <Title tw="text-white">{republic.whoHeader}</Title>
+            <div tw="text-left text-base my-20">{republic.whoDescription}</div>
             <div tw="grid grid-flow-row gap-5 w-full">
-              {persons.map(person => (
+              {republic.persons.map(person => (
                 <WhoIsWhoCard
                   key={person.id}
                   name={person.fullName}
@@ -106,11 +96,11 @@ const RepublicLayout = ({
             <div tw="max-w-[554px]">
               <div tw="mb-20">
                 <TitleSmall>Zrealizowane cele</TitleSmall>
-                <ParagraphSmall>{reachedGoals}</ParagraphSmall>
+                <ParagraphSmall>{republic.reachedGoals}</ParagraphSmall>
               </div>
               <div>
                 <TitleSmall>Aktualne cele</TitleSmall>
-                <ParagraphSmall>{currentGoals}</ParagraphSmall>
+                <ParagraphSmall>{republic.currentGoals}</ParagraphSmall>
               </div>
             </div>
           </div>
