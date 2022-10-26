@@ -7,7 +7,7 @@ export type RepublicProps = {
 }
 
 export default function Republic({ republic }: RepublicProps) {
-  return <RepublicLayout republic={republic}></RepublicLayout>
+  return <RepublicLayout republic={republic} />
 }
 
 export async function getStaticProps({ params }: { params: { id: Republics } }) {
@@ -33,6 +33,6 @@ export async function getStaticProps({ params }: { params: { id: Republics } }) 
 export async function getStaticPaths() {
   return {
     paths: Object.keys(Republics).map(id => ({ params: { id } })),
-    fallback: true,
+    fallback: false,
   }
 }

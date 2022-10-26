@@ -35,6 +35,7 @@ const fetchAPI = async (query: string, { variables, preview = false }: { variabl
 const GET_REPUBLIC = `
   query Republics($republicId: RepublicType!) {
     republic(where: {republicType: $republicId}) {
+      republicType
       leadText
       leadAuthor
       welcomeHeader

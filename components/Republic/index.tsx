@@ -1,5 +1,7 @@
+import Link from 'next/link'
 import tw from 'twin.macro'
 
+import { BlockchainBadge, FrontendBadge, MLBadge, SeoBadge } from '@components/badges'
 import RepublicGoals from '@components/big-icons/RepublicGoals'
 import { GradientOverlay } from '@components/common/GradientOverlay'
 import { LinkButton } from '@components/common/LinkButton'
@@ -23,6 +25,7 @@ const PartContainer = tw.div`
 
 const ContentColumn = tw.div`
   max-w-[1440px] mx-auto pt-20 pb-28
+  relative
   z-50
 `
 
@@ -30,14 +33,29 @@ const Block = tw.div`
   text-center
 `
 
-const RepublicLayout = ({ republic }: RepublicProps) => {
-  if (!republic) {
-    return null
+const renderBadge = ({ republicType }: { republicType: string }) => {
+  switch (republicType) {
+    case 'seo':
+      return <SeoBadge />
+    case 'blockchain':
+      return <BlockchainBadge />
+    case 'frontend':
+      return <FrontendBadge />
+    case 'machine_learning':
+      return <MLBadge />
   }
+}
+
+const RepublicLayout = ({ republic }: RepublicProps) => {
+  const republicType = republic.republicType
 
   return (
     <Container>
       <PartContainer>
+        <div tw="absolute z-30 left-28 top-28 max-w-[117px] grid gap-10">
+          <Link href="/"> &lt; powrót</Link>
+          {renderBadge({ republicType })}
+        </div>
         <ContentColumn>
           <Block tw="max-w-[960px]">
             <SeoMotive />
