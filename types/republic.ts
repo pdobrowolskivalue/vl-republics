@@ -7,10 +7,10 @@ export enum Republics {
 
 export type RepublicData = {
   leadText: string
-  leadAuthor: string // to add
+  leadAuthor: string
   welcomeHeader: string
   welcomeDescription: string
-  welcomeCards: [WelcomeCard] //to add
+  welcomeCards: [WelcomeCard]
   whoHeader: string
   whoDescription: string
   persons: [Person]

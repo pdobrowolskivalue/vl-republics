@@ -1,4 +1,5 @@
 import tw from 'twin.macro'
+import Link from 'next/link'
 
 import RepublicGoals from '@components/big-icons/RepublicGoals'
 import { GradientOverlay } from '@components/common/GradientOverlay'
@@ -10,6 +11,7 @@ import { Background } from '@components/Republic/Background'
 import MaterialCard from '@components/Republic/MaterialCard'
 import { WelcomeCard } from '@components/Republic/WelcomeCard'
 import { RepublicProps } from 'pages/republic/[id]'
+import { SeoBadge } from '@components/badges'
 
 import { WhoIsWhoCard } from './WhoIsWhoCard'
 
@@ -23,6 +25,7 @@ const PartContainer = tw.div`
 
 const ContentColumn = tw.div`
   max-w-[1440px] mx-auto pt-20 pb-28
+  relative
   z-50
 `
 
@@ -38,6 +41,11 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
   return (
     <Container>
       <PartContainer>
+        <div tw="absolute z-30 left-28 top-28 max-w-[117px] grid gap-10">
+          <Link href="/"> &lt; powrót</Link>
+          {/*{renderBadge(republic.)}*/}
+          <SeoBadge tw="mt-8" />
+        </div>
         <ContentColumn>
           <Block tw="max-w-[960px]">
             <SeoMotive />
