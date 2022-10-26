@@ -58,7 +58,7 @@ const RepublicLayout = ({
           </Block>
         </ContentColumn>
         <GradientOverlay />
-        <Background url="bc_1" />
+        <Background url="bc" />
       </PartContainer>
 
       <PartContainer tw="bg-vlr-bg-light">
