@@ -1,6 +1,7 @@
-import tw from 'twin.macro'
 import Link from 'next/link'
+import tw from 'twin.macro'
 
+import { BlockchainBadge, FrontendBadge, MLBadge, SeoBadge } from '@components/badges'
 import RepublicGoals from '@components/big-icons/RepublicGoals'
 import { GradientOverlay } from '@components/common/GradientOverlay'
 import { LinkButton } from '@components/common/LinkButton'
@@ -11,7 +12,6 @@ import { Background } from '@components/Republic/Background'
 import MaterialCard from '@components/Republic/MaterialCard'
 import { WelcomeCard } from '@components/Republic/WelcomeCard'
 import { RepublicProps } from 'pages/republic/[id]'
-import { BlockchainBadge, FrontendBadge, MLBadge, SeoBadge } from '@components/badges'
 
 import { WhoIsWhoCard } from './WhoIsWhoCard'
 
@@ -47,10 +47,6 @@ const renderBadge = ({ republicType }: { republicType: string }) => {
 }
 
 const RepublicLayout = ({ republic }: RepublicProps) => {
-  if (!republic) {
-    return null
-  }
-
   const republicType = republic.republicType
 
   return (
