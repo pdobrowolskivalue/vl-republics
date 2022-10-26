@@ -86,7 +86,7 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
             </div>
           </Block>
           <Block>
-            <div tw="grid grid-cols-4 gap-4 mt-4">
+            <div tw="flex flex-row justify-center mt-4">
               {republic.welcomeCards.map(card => (
                 <WelcomeCard key={card.id} title={card.title} description={card.description} iconUrl={card.iconUrl} />
               ))}
