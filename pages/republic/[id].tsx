@@ -7,7 +7,7 @@ export type RepublicProps = {
 }
 
 export default function Republic({ republic }: RepublicProps) {
-  return <RepublicLayout republic={republic}></RepublicLayout>
+  return <RepublicLayout republic={republic} />
 }
 
 export async function getStaticProps({ params }: { params: { id: Republics } }) {

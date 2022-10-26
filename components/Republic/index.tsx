@@ -11,7 +11,7 @@ import { Background } from '@components/Republic/Background'
 import MaterialCard from '@components/Republic/MaterialCard'
 import { WelcomeCard } from '@components/Republic/WelcomeCard'
 import { RepublicProps } from 'pages/republic/[id]'
-import { SeoBadge } from '@components/badges'
+import { BlockchainBadge, FrontendBadge, MLBadge, SeoBadge } from '@components/badges'
 
 import { WhoIsWhoCard } from './WhoIsWhoCard'
 
@@ -33,18 +33,32 @@ const Block = tw.div`
   text-center
 `
 
+const renderBadge = ({ republicType }: { republicType: string }) => {
+  switch (republicType) {
+    case 'seo':
+      return <SeoBadge />
+    case 'blockchain':
+      return <BlockchainBadge />
+    case 'frontend':
+      return <FrontendBadge />
+    case 'machine_learning':
+      return <MLBadge />
+  }
+}
+
 const RepublicLayout = ({ republic }: RepublicProps) => {
   if (!republic) {
     return null
   }
+
+  const republicType = republic.republicType
 
   return (
     <Container>
       <PartContainer>
         <div tw="absolute z-30 left-28 top-28 max-w-[117px] grid gap-10">
           <Link href="/"> &lt; powrót</Link>
-          {/*{renderBadge(republic.)}*/}
-          <SeoBadge tw="mt-8" />
+          {renderBadge({ republicType })}
         </div>
         <ContentColumn>
           <Block tw="max-w-[960px]">

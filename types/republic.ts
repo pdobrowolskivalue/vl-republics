@@ -6,6 +6,7 @@ export enum Republics {
 }
 
 export type RepublicData = {
+  republicType: string
   leadText: string
   leadAuthor: string
   welcomeHeader: string
