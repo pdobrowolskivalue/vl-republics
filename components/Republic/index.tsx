@@ -4,6 +4,7 @@ import tw from 'twin.macro'
 import RepublicGoals from '@components/big-icons/RepublicGoals'
 import { LinkButton } from '@components/common/LinkButton'
 import { Paragraph, ParagraphSmall, Title, TitleSmall } from '@components/common/TextStyles'
+import Footer from '@components/Footer'
 import { SeoMotive } from '@components/motives'
 import { Background } from '@components/Republic/Background'
 import MaterialCard from '@components/Republic/MaterialCard'
@@ -11,6 +12,7 @@ import { WelcomeCard } from '@components/Republic/WelcomeCard'
 
 import { WhoIsWhoCard } from './WhoIsWhoCard'
 
+import BlockchainBackground from '../../assets/images/blockchain-background.webp'
 import SeoBackground from '../../assets/images/seo-background.webp'
 import { RepublicProps } from '../../pages/republic/[id]'
 
@@ -77,9 +79,12 @@ const RepublicLayout = ({
         </ContentColumn>
       </PartContainer>
 
-      <PartContainer>
-        <Background url="https://i.wpimg.pl/1200x/d.wpimg.pl/1361730298--935151286/kosmos.jpg" />
-        <ContentColumn>
+      <PartContainer tw="relative">
+        <div tw="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-vlr-dark z-20 h-full" />
+        <div tw="absolute inset-0 z-10 h-full">
+          <Image src={BlockchainBackground} alt="background" layout="fill" objectFit="cover" objectPosition="center" />
+        </div>
+        <ContentColumn tw="z-30">
           <Block tw="max-w-[996px]">
             <Title tw="text-white">{whoHeader}</Title>
             <div tw="text-left text-base my-20">{whoDescription}</div>
@@ -153,21 +158,7 @@ const RepublicLayout = ({
           </Block>
         </ContentColumn>
       </PartContainer>
-
-      <PartContainer>
-        <Background url="https://i.wpimg.pl/1200x/d.wpimg.pl/1361730298--935151286/kosmos.jpg" />
-        <ContentColumn>
-          <Title tw="text-white">Stwórz własną Republikę!</Title>
-          <Block tw="max-w-[996px]">
-            Consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-            ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut
-            labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,
-          </Block>
-          <Block tw="mt-16">
-            <LinkButton>Stwórz republikę</LinkButton>
-          </Block>
-        </ContentColumn>
-      </PartContainer>
+      <Footer />
     </Container>
   )
 }
