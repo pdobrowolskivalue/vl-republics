@@ -10,7 +10,6 @@ const Container = tw.div`
   bg-white rounded-md shadow-[0 1px 0 vlr-shadow]
   w-[290px] max-w-[290px]
   flex flex-col
-  gap-[27px]
 `
 
 const renderIcon = ({ iconUrl }: { iconUrl: string }) => {
