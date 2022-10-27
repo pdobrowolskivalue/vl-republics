@@ -53,7 +53,11 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
     <Container>
       <PartContainer>
         <div tw="absolute z-30 left-28 top-28 max-w-[117px] grid gap-10">
-          <Link href="/"> &lt; powrót</Link>
+          <Link href="/">
+            <div tw="text-sm cursor-pointer before:content-['<'] before:pr-3 before:text-4xl before:align-middle">
+              powrót
+            </div>
+          </Link>
           {renderBadge({ republicType })}
         </div>
         <ContentColumn>
@@ -78,7 +82,7 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
             </div>
           </Block>
           <Block>
-            <div tw="grid grid-cols-4 gap-4 mt-4">
+            <div tw="flex flex-row flex-shrink-0 gap-10 justify-center max-w-[1280px] mt-4">
               {republic.welcomeCards.map(card => (
                 <WelcomeCard key={card.id} title={card.title} description={card.description} iconUrl={card.iconUrl} />
               ))}
