@@ -21,7 +21,7 @@ export async function getStaticProps({ params }: { params: { id: Republics } }) 
   }
 
   const id = params.id.replace(/-/g, '_')
-  const data = await getRepublic(id, process.env.VERCEL_ENV !== 'production')
+  const data = await getRepublic(id)
 
   return {
     props: {
