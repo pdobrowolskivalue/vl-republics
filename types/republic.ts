@@ -11,13 +11,13 @@ export type RepublicData = {
   leadAuthor: string
   welcomeHeader: string
   welcomeDescription: string
-  welcomeCards: [WelcomeCard]
+  welcomeCards: WelcomeCard[]
   whoHeader: string
   whoDescription: string
-  persons: [Person]
+  persons: Person[]
   reachedGoals: string
   currentGoals: string
-  files: [File]
+  files: File[]
 }
 
 export type Person = {
@@ -36,6 +36,7 @@ export type WelcomeCard = {
 }
 
 export type File = {
+  id: string
   title: string
   author: string
   type: string
