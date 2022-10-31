@@ -6,5 +6,5 @@ type ContainerProps = {
 
 export const Container = styled.div(({ fluid = false }: ContainerProps) => [
   tw`text-center px-8 md:px-0`,
-  !fluid && tw`max-w-[870px]`,
+  !fluid && tw`lg:w-[870px]`,
 ])

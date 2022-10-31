@@ -11,6 +11,7 @@ import { SeoMotive } from '@components/motives'
 import { Background } from '@components/Republic/Background'
 import MaterialCard from '@components/Republic/MaterialCard'
 import { WelcomeCard } from '@components/Republic/WelcomeCard'
+import { Republics } from '@type/republic'
 import { RepublicProps } from 'pages/republic/[id]'
 
 import { WhoIsWhoCard } from './WhoIsWhoCard'
@@ -33,21 +34,34 @@ const Block = tw.div`
   text-center
 `
 
-const renderBadge = ({ republicType }: { republicType: string }) => {
+const renderBadge = ({ republicType }: { republicType: Republics }) => {
   switch (republicType) {
-    case 'seo':
+    case Republics.seo:
       return <SeoBadge />
-    case 'blockchain':
+    case Republics.blockchain:
       return <BlockchainBadge />
-    case 'frontend':
+    case Republics.frontend:
       return <FrontendBadge />
-    case 'machine_learning':
+    case Republics['machine-learning']:
       return <MLBadge />
   }
 }
 
 const RepublicLayout = ({ republic }: RepublicProps) => {
-  const republicType = republic.republicType
+  const {
+    leadText,
+    leadAuthor,
+    welcomeHeader,
+    welcomeDescription,
+    welcomeCards,
+    whoHeader,
+    whoDescription,
+    persons,
+    reachedGoals,
+    currentGoals,
+  } = republic
+
+  const republicType = republic.republicType.replace(/_/g, '-') as Republics
 
   return (
     <Container>
@@ -65,20 +79,20 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
             <SeoMotive />
           </Block>
           <Block>
-            <p tw="font-normal text-4xl leading-[60px] max-w-[846px] mx-auto mt-20 mb-7">{republic.leadText}</p>
-            <p tw="font-normal text-2xl leading-9 text-vlr-accent">{republic.leadAuthor}</p>
+            <p tw="font-normal text-4xl leading-[60px] max-w-[846px] mx-auto mt-20 mb-7">{leadText}</p>
+            <p tw="font-normal text-2xl leading-9 text-vlr-accent">{leadAuthor}</p>
           </Block>
         </ContentColumn>
         <GradientOverlay />
-        <Background url="bc" />
+        <Background republicType={republicType} />
       </PartContainer>
 
       <PartContainer tw="bg-vlr-bg-light">
         <ContentColumn tw="pb-28">
           <Block>
             <div tw="text-left max-w-[846px] mx-auto bg-vlr-bg-light rounded-lg px-20 py-10 mt-[-10rem]">
-              <Title>{republic.welcomeHeader}</Title>
-              <Paragraph>{republic.welcomeDescription}</Paragraph>
+              <Title>{welcomeHeader}</Title>
+              <Paragraph>{welcomeDescription}</Paragraph>
             </div>
           </Block>
           <Block>
@@ -94,10 +108,10 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
       <PartContainer>
         <ContentColumn>
           <Block tw="max-w-[996px]">
-            <Title tw="text-white">{republic.whoHeader}</Title>
-            <div tw="text-left text-base my-20">{republic.whoDescription}</div>
+            <Title tw="text-white">{whoHeader}</Title>
+            <div tw="text-left text-base my-20">{whoDescription}</div>
             <div tw="grid grid-flow-row gap-5 w-full">
-              {republic.persons.map(person => (
+              {persons.map(person => (
                 <WhoIsWhoCard
                   key={person.id}
                   name={person.fullName}
@@ -108,7 +122,7 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
             </div>
           </Block>
         </ContentColumn>
-        <Background url="se" />
+        <Background useOverlay republicType={republicType} />
       </PartContainer>
 
       <PartContainer tw="bg-vlr-bg-light text-vlr-dark">
@@ -118,11 +132,11 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
             <div tw="max-w-[554px]">
               <div tw="mb-20">
                 <TitleSmall>Zrealizowane cele</TitleSmall>
-                <ParagraphSmall>{republic.reachedGoals}</ParagraphSmall>
+                <ParagraphSmall>{reachedGoals}</ParagraphSmall>
               </div>
               <div>
                 <TitleSmall>Aktualne cele</TitleSmall>
-                <ParagraphSmall>{republic.currentGoals}</ParagraphSmall>
+                <ParagraphSmall>{currentGoals}</ParagraphSmall>
               </div>
             </div>
           </div>
@@ -154,7 +168,7 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
             <LinkButton>Więcej materiałów</LinkButton>
           </Block>
         </ContentColumn>
-        <Background url="se" />
+        <Background useOverlay republicType={republicType} />
       </PartContainer>
       <Footer />
     </Container>

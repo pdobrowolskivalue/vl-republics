@@ -25,7 +25,7 @@ const fetchAPI = async (query: string, { variables, preview = false }: { variabl
     // eslint-disable-next-line no-console
     console.log(process.env.NEXT_EXAMPLE_CMS_GCMS_PROJECT_ID)
     // eslint-disable-next-line no-console
-    console.log(json.errors)
+    console.log(JSON.stringify(json.errors))
     throw Error('Failed to fetch API')
   }
 
@@ -74,7 +74,7 @@ const GET_REPUBLIC = `
   }
 `
 
-const getRepublic = async (republic: string, preview = false) => {
+const getRepublic = async (republic: string, preview = process.env.VERCEL_ENV !== 'production') => {
   const data = await fetchAPI(GET_REPUBLIC, {
     variables: {
       republicId: republic,
@@ -85,4 +85,30 @@ const getRepublic = async (republic: string, preview = false) => {
   return data
 }
 
-export { getRepublic }
+const CREATE_REPUBLIC_PROPOSITION = `
+mutation CreateRepublicProposition($data: RepublicPropositionCreateInput = {name: "", description: ""}) {
+  createRepublicProposition(data: $data) {
+    id
+  }
+}
+`
+type RepublicPropositionCreateInput = {
+  name: string
+  description: string
+}
+
+const createRepublicProposition = async (
+  proposition: RepublicPropositionCreateInput,
+  preview = process.env.VERCEL_ENV !== 'production'
+) => {
+  const data = await fetchAPI(CREATE_REPUBLIC_PROPOSITION, {
+    variables: {
+      data: proposition,
+    },
+    preview,
+  })
+
+  return data.createRepublicProposition
+}
+
+export { getRepublic, createRepublicProposition }
