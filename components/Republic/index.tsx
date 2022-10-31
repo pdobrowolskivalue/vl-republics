@@ -11,6 +11,7 @@ import { SeoMotive } from '@components/motives'
 import { Background } from '@components/Republic/Background'
 import MaterialCard from '@components/Republic/MaterialCard'
 import { WelcomeCard } from '@components/Republic/WelcomeCard'
+import { Republics } from '@type/republic'
 import { RepublicProps } from 'pages/republic/[id]'
 
 import { WhoIsWhoCard } from './WhoIsWhoCard'
@@ -33,15 +34,15 @@ const Block = tw.div`
   text-center
 `
 
-const renderBadge = ({ republicType }: { republicType: string }) => {
+const renderBadge = ({ republicType }: { republicType: Republics }) => {
   switch (republicType) {
-    case 'seo':
+    case Republics.seo:
       return <SeoBadge />
-    case 'blockchain':
+    case Republics.blockchain:
       return <BlockchainBadge />
-    case 'frontend':
+    case Republics.frontend:
       return <FrontendBadge />
-    case 'machine_learning':
+    case Republics['machine-learning']:
       return <MLBadge />
   }
 }
@@ -83,7 +84,7 @@ const RepublicLayout = ({
           </Block>
         </ContentColumn>
         <GradientOverlay />
-        <Background url="bc" />
+        <Background republicType={republicType} />
       </PartContainer>
 
       <PartContainer tw="bg-vlr-bg-light">
@@ -121,7 +122,7 @@ const RepublicLayout = ({
             </div>
           </Block>
         </ContentColumn>
-        <Background url="se" />
+        <Background useOverlay republicType={republicType} />
       </PartContainer>
 
       <PartContainer tw="bg-vlr-bg-light text-vlr-dark">
@@ -167,7 +168,7 @@ const RepublicLayout = ({
             <LinkButton>Więcej materiałów</LinkButton>
           </Block>
         </ContentColumn>
-        <Background url="se" />
+        <Background useOverlay republicType={republicType} />
       </PartContainer>
       <Footer />
     </Container>
