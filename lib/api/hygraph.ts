@@ -56,6 +56,9 @@ const GET_REPUBLIC = `
           title
           fullName
           description
+          photoUrl {
+            url
+          }
         }
       }
       reachedGoals

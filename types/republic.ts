@@ -25,7 +25,9 @@ export type Person = {
   title: string
   fullName: string
   description: string
-  photoUrl: string
+  photoUrl: {
+    url?: string
+  }
 }
 
 export type WelcomeCard = {
