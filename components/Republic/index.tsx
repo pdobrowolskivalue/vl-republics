@@ -47,9 +47,8 @@ const renderBadge = ({ republicType }: { republicType: Republics }) => {
   }
 }
 
-const RepublicLayout = ({
-  republic: {
-    republicType,
+const RepublicLayout = ({ republic }: RepublicProps) => {
+  const {
     leadText,
     leadAuthor,
     welcomeHeader,
@@ -61,8 +60,10 @@ const RepublicLayout = ({
     reachedGoals,
     currentGoals,
     files,
-  },
-}: RepublicProps) => {
+  } = republic
+
+  const republicType = republic.republicType.replace(/_/g, '-') as Republics
+
   return (
     <Container>
       <PartContainer>
