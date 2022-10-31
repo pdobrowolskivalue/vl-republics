@@ -11,6 +11,7 @@ import { Main } from '@components/common/Main'
 import Footer from '@components/Footer'
 import Hero from '@components/Hero'
 import { republics } from '@lib/consts/republics'
+import { Republics } from '@type/republic'
 
 const Badge = tw.div`
   m-4 w-28
@@ -30,18 +31,26 @@ const Home: NextPage = () => {
       <Main>
         <Container tw="my-16">
           <div tw="mb-8 flex flex-wrap items-center justify-center">
-            <Badge>
-              <SeoBadge />
-            </Badge>
-            <Badge>
-              <FrontendBadge />
-            </Badge>
-            <Badge>
-              <BlockchainBadge />
-            </Badge>
-            <Badge>
-              <MLBadge />
-            </Badge>
+            <Link href={`/republic/${Republics.seo}`}>
+              <Badge tw="cursor-pointer">
+                <SeoBadge />
+              </Badge>
+            </Link>
+            <Link href={`/republic/${Republics.frontend}`}>
+              <Badge tw="cursor-pointer">
+                <FrontendBadge />
+              </Badge>
+            </Link>
+            <Link href={`/republic/${Republics.blockchain}`}>
+              <Badge tw="cursor-pointer">
+                <BlockchainBadge />
+              </Badge>
+            </Link>
+            <Link href={`/republic/${Republics['machine-learning']}`}>
+              <Badge tw="cursor-pointer">
+                <MLBadge />
+              </Badge>
+            </Link>
           </div>
           <p tw="mb-8 text-2xl lg:text-3xl text-center text-vlr-accent">
             Witamy w naszych Republikach! Jesteśmy po dobrej technologicznej stronie mocy. May the Value be with you!
