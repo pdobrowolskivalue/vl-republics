@@ -46,9 +46,22 @@ const renderBadge = ({ republicType }: { republicType: string }) => {
   }
 }
 
-const RepublicLayout = ({ republic }: RepublicProps) => {
-  const republicType = republic.republicType
-
+const RepublicLayout = ({
+  republic: {
+    republicType,
+    leadText,
+    leadAuthor,
+    welcomeHeader,
+    welcomeDescription,
+    welcomeCards,
+    whoHeader,
+    whoDescription,
+    persons,
+    reachedGoals,
+    currentGoals,
+    files,
+  },
+}: RepublicProps) => {
   return (
     <Container>
       <PartContainer>
@@ -65,8 +78,8 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
             <SeoMotive />
           </Block>
           <Block>
-            <p tw="font-normal text-4xl leading-[60px] max-w-[846px] mx-auto mt-20 mb-7">{republic.leadText}</p>
-            <p tw="font-normal text-2xl leading-9 text-vlr-accent">{republic.leadAuthor}</p>
+            <p tw="font-normal text-4xl leading-[60px] max-w-[846px] mx-auto mt-20 mb-7">{leadText}</p>
+            <p tw="font-normal text-2xl leading-9 text-vlr-accent">{leadAuthor}</p>
           </Block>
         </ContentColumn>
         <GradientOverlay />
@@ -77,13 +90,13 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
         <ContentColumn tw="pb-28">
           <Block>
             <div tw="text-left max-w-[846px] mx-auto bg-vlr-bg-light rounded-lg px-20 py-10 mt-[-10rem]">
-              <Title>{republic.welcomeHeader}</Title>
-              <Paragraph>{republic.welcomeDescription}</Paragraph>
+              <Title>{welcomeHeader}</Title>
+              <Paragraph>{welcomeDescription}</Paragraph>
             </div>
           </Block>
           <Block>
             <div tw="flex flex-row flex-wrap gap-10 justify-center max-w-[1280px] mt-4 mx-5">
-              {republic.welcomeCards.map(card => (
+              {welcomeCards.map(card => (
                 <WelcomeCard key={card.id} title={card.title} description={card.description} iconUrl={card.iconUrl} />
               ))}
             </div>
@@ -94,10 +107,10 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
       <PartContainer>
         <ContentColumn>
           <Block tw="max-w-[996px]">
-            <Title tw="text-white">{republic.whoHeader}</Title>
-            <div tw="text-left text-base my-20">{republic.whoDescription}</div>
+            <Title tw="text-white">{whoHeader}</Title>
+            <div tw="text-left text-base my-20">{whoDescription}</div>
             <div tw="grid grid-flow-row gap-5 w-full">
-              {republic.persons.map(person => (
+              {persons.map(person => (
                 <WhoIsWhoCard
                   key={person.id}
                   name={person.fullName}
@@ -118,11 +131,11 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
             <div tw="max-w-[554px]">
               <div tw="mb-20">
                 <TitleSmall>Zrealizowane cele</TitleSmall>
-                <ParagraphSmall>{republic.reachedGoals}</ParagraphSmall>
+                <ParagraphSmall>{reachedGoals}</ParagraphSmall>
               </div>
               <div>
                 <TitleSmall>Aktualne cele</TitleSmall>
-                <ParagraphSmall>{republic.currentGoals}</ParagraphSmall>
+                <ParagraphSmall>{currentGoals}</ParagraphSmall>
               </div>
             </div>
           </div>
@@ -134,8 +147,8 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
           <Block tw="">
             <Title tw="text-white mb-14">Materiały</Title>
             <div tw="grid grid-flow-row gap-5">
-              {Array.isArray(republic.files) && republic.files.length ? (
-                republic.files.map(file => (
+              {Array.isArray(files) && files.length ? (
+                files.map(file => (
                   <MaterialCard
                     key={file.id}
                     title={file.title}
