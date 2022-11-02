@@ -59,6 +59,7 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
     persons,
     reachedGoals,
     currentGoals,
+    files,
   } = republic
 
   const republicType = republic.republicType.replace(/_/g, '-') as Republics
@@ -96,7 +97,7 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
             </div>
           </Block>
           <Block>
-            <div tw="flex flex-row flex-shrink-0 gap-10 justify-center max-w-[1280px] mt-4">
+            <div tw="flex flex-row flex-wrap gap-10 justify-center max-w-[1280px] mt-4 mx-5">
               {welcomeCards.map(card => (
                 <WelcomeCard key={card.id} title={card.title} description={card.description} iconUrl={card.iconUrl} />
               ))}
@@ -144,32 +145,24 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
       </PartContainer>
 
       <PartContainer>
-        <ContentColumn tw="py-16 z-30">
-          <Block tw="max-w-[996px]">
+        <ContentColumn tw="max-w-[1030px] w-[1030px] py-16 z-30 mx-5">
+          <Block tw="">
             <Title tw="text-white mb-14">Materiały</Title>
-            <div tw="grid grid-flow-row gap-5 w-full">
-              {/*TODO map materials*/}
-              <MaterialCard
-                title="Czym sa republiki?"
-                author="Bartosz Kopańczyk"
-                fileType="Google doc"
-                date="12.01.2022"
-                url="/link"
-              />
-              <MaterialCard
-                title="O nowej roli i możliwościach rozwoju w VL"
-                author="Kamil Przybyło"
-                fileType="Video file"
-                date="03.02.2022"
-                url="/link"
-              />
-              <MaterialCard
-                title="Zasady tworzenia republik"
-                author="Bartosz Kopańczyk"
-                fileType="Google slides"
-                date="05.10.2022"
-                url="/link"
-              />
+            <div tw="grid grid-flow-row gap-5">
+              {Array.isArray(files) && files.length ? (
+                files.map(file => (
+                  <MaterialCard
+                    key={file.id}
+                    title={file.title}
+                    author={file.author}
+                    fileType={file.type}
+                    date={file.date}
+                    url={file.url}
+                  />
+                ))
+              ) : (
+                <div tw="text-white">Brak danych</div>
+              )}
             </div>
           </Block>
           <Block tw="mt-16">
