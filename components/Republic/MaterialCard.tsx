@@ -18,8 +18,11 @@ function MaterialCard({
   date: string
   url: string
 }) {
-  const dateType = new Date(date)
-  const dateFormatted = dateType.toLocaleDateString('pl-PL', { day: '2-digit', month: '2-digit', year: 'numeric' })
+  const dateFormatted = new Date(date).toLocaleDateString('pl-PL', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  })
 
   return (
     <div tw="flex gap-4 flex-col min-h-[80px] py-7 px-10 border-solid border-[1px] border-vlr-accent/20 rounded-lg backdrop-blur-sm md:flex-row md:gap-8">
