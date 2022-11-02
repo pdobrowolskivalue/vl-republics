@@ -10,7 +10,7 @@ import { LinkButton } from '@components/common/LinkButton'
 const Footer = () => {
   return (
     <div tw="relative w-full flex items-center justify-center h-[500px]">
-      <Container tw="z-10">
+      <Container tw="z-10 mx-5">
         <h2 tw="text-4xl font-weight[600]">Stwórz własną Republikę!</h2>
         <p tw="my-12">
           Consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem

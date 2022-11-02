@@ -25,7 +25,7 @@ const PartContainer = tw.div`
 `
 
 const ContentColumn = tw.div`
-  max-w-[1440px] mx-auto pt-20 pb-28
+  max-w-[1440px] mx-auto mx-5 pt-14 pb-20 sm:pt-20 sm:pb-28
   relative
   z-50
 `
@@ -89,7 +89,7 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
       </PartContainer>
 
       <PartContainer tw="bg-vlr-bg-light">
-        <ContentColumn tw="pb-28">
+        <ContentColumn>
           <Block>
             <div tw="text-left max-w-[846px] mx-auto bg-vlr-bg-light rounded-lg px-20 py-10 mt-[-10rem]">
               <Title>{welcomeHeader}</Title>
@@ -127,11 +127,13 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
       </PartContainer>
 
       <PartContainer tw="bg-vlr-bg-light text-vlr-dark">
-        <ContentColumn tw="pt-28">
-          <div tw="flex gap-40">
-            <RepublicGoals />
+        <ContentColumn tw="max-w-[1116px] w-[1116px] pt-20 sm:pt-28">
+          <div tw="flex flex-col gap-20 sm:flex-row sm:gap-10 md:gap-20 lg:gap-40">
+            <div tw="w-full min-w-[200px]">
+              <RepublicGoals />
+            </div>
             <div tw="max-w-[554px]">
-              <div tw="mb-20">
+              <div tw="mb-10 lg:mb-20">
                 <TitleSmall>Zrealizowane cele</TitleSmall>
                 <ParagraphSmall>{reachedGoals}</ParagraphSmall>
               </div>
@@ -145,7 +147,7 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
       </PartContainer>
 
       <PartContainer>
-        <ContentColumn tw="max-w-[1030px] w-[1030px] py-16 z-30 mx-5">
+        <ContentColumn tw="max-w-[1030px] w-[1030px] py-16 z-30">
           <Block tw="">
             <Title tw="text-white mb-14">Materiały</Title>
             <div tw="grid grid-flow-row gap-5">
