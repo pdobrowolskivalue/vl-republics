@@ -35,7 +35,7 @@ function MaterialCard({
                 src={fileData[fileType] ? fileData[fileType].image : GoogleDocIcon}
                 width="14px"
                 height="18px"
-                alt="Icon of ${fileType}"
+                alt="file type"
               />
             </div>
             <div tw="my-auto text-left ml-3 text-xs md:text-sm md:min-w-[95px]">
