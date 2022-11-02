@@ -56,7 +56,7 @@ const GET_REPUBLIC = `
           title
           fullName
           description
-          photoUrl {
+          photo {
             url
           }
         }
