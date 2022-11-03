@@ -6,12 +6,13 @@ import Link from 'next/link'
 import CreateRepublicBackground from '@assets/images/create-republic-background.webp'
 import { Container } from '@components/common/Container'
 import { LinkButton } from '@components/common/LinkButton'
+import { Title } from '@components/common/TextStyles'
 
 const Footer = () => {
   return (
-    <div tw="relative w-full flex items-center justify-center h-[500px]">
+    <div tw="relative w-full flex items-center justify-center py-20 sm:py-28">
       <Container tw="z-10 mx-5">
-        <h2 tw="text-4xl font-weight[600]">Stwórz własną Republikę!</h2>
+        <Title tw="text-white">Stwórz własną Republikę!</Title>
         <p tw="my-12">
           Consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
           ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut

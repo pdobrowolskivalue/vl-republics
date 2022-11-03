@@ -24,30 +24,45 @@ export const WhoIsWhoCard = ({
   photo?: string
 }) => {
   return (
-    <div tw="flex py-6 px-[60px] items-center text-left border-solid border-[1px] border-vlr-accent/20 rounded-lg backdrop-blur-sm">
-      <div tw="mr-20 w-[88px] h-[88px] text-center">
-        {photo ? (
-          <div tw="relative">
-            <div tw="h-[84px] w-[80px]">
-              <Image src={ImageFrame} alt="image frame" />
+    <div
+      tw="flex text-left py-6 border-solid border-[1px] border-vlr-accent/20 rounded-lg backdrop-blur-sm
+    px-8 sm:px-14
+    flex-col md:flex-row gap-10 lg:gap-20"
+    >
+      <div
+        tw="flex items-center justify-center
+      gap-10 lg:gap-20"
+      >
+        <div tw="w-[88px]">
+          {photo ? (
+            <div tw="top-[-4px] relative">
+              <div tw="h-[84px] w-[80px]">
+                <Image src={ImageFrame} alt="image frame" />
+              </div>
+              <div tw="absolute top-[6px] left-[6px]">
+                <ImageClipPath>
+                  <Image src={photo} layout="fill" objectFit="cover" alt={name} />
+                </ImageClipPath>
+              </div>
             </div>
-            <div tw="absolute top-[6px] left-[6px]">
-              <ImageClipPath>
-                <Image src={photo} layout="fill" objectFit="cover" alt={name} />
-              </ImageClipPath>
+          ) : (
+            <div tw="w-[80px] mx-auto">
+              <Honors />
             </div>
+          )}
+        </div>
+        <div tw="md:w-[200px]">
+          <div tw="text-xs sm:text-sm">{role}</div>
+          <div
+            tw="font-medium
+          text-lg sm:text-[22px]"
+          >
+            {name}
           </div>
-        ) : (
-          <div tw="w-[80px]">
-            <Honors />
-          </div>
-        )}
+        </div>
       </div>
-      <div tw="mr-20 max-w-[205px] w-[205px]">
-        <div tw="text-sm">{role}</div>
-        <div tw="text-[22px] leading-[33px] font-medium">{name}</div>
-      </div>
-      <div tw="max-w-[390px]">{description}</div>
+
+      <div tw="text-xs sm:text-sm">{description}</div>
     </div>
   )
 }

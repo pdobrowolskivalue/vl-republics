@@ -25,7 +25,8 @@ const PartContainer = tw.div`
 `
 
 const ContentColumn = tw.div`
-  max-w-[1440px] mx-auto mx-5 pt-14 pb-20 sm:pt-20 sm:pb-28
+  max-w-[1440px] mx-auto mx-5
+  pt-14 sm:pt-20 pb-20 sm:pb-28
   relative
   z-50
 `
@@ -91,7 +92,10 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
       <PartContainer tw="bg-vlr-bg-light">
         <ContentColumn>
           <Block>
-            <div tw="text-left max-w-[846px] mx-auto bg-vlr-bg-light rounded-lg px-20 py-10 mt-[-10rem]">
+            <div
+              tw="text-left max-w-[846px] mx-auto bg-vlr-bg-light rounded-lg px-12
+            sm:px-20 py-6 sm:py-10 mt-[-6rem] sm:mt-[-10rem]"
+            >
               <Title>{welcomeHeader}</Title>
               <Paragraph>{welcomeDescription}</Paragraph>
             </div>
@@ -110,7 +114,12 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
         <ContentColumn>
           <Block tw="max-w-[996px]">
             <Title tw="text-white">{whoHeader}</Title>
-            <div tw="text-left text-base my-20">{whoDescription}</div>
+            <div
+              tw="text-left text-base
+            my-12 sm:my-20"
+            >
+              {whoDescription}
+            </div>
             <div tw="grid grid-flow-row gap-5 w-full">
               {persons.map(person => (
                 <WhoIsWhoCard
@@ -128,8 +137,14 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
       </PartContainer>
 
       <PartContainer tw="bg-vlr-bg-light text-vlr-dark">
-        <ContentColumn tw="max-w-[1116px] w-[1116px] pt-20 sm:pt-28">
-          <div tw="flex flex-col gap-20 sm:flex-row sm:gap-10 md:gap-20 lg:gap-40">
+        <ContentColumn
+          tw="max-w-[1116px] w-[1116px]
+        pt-20 sm:pt-28"
+        >
+          <div
+            tw="flex
+          flex-col sm:flex-row gap-20 sm:gap-10 md:gap-20 lg:gap-40"
+          >
             <div tw="w-full min-w-[200px]">
               <RepublicGoals />
             </div>
