@@ -118,6 +118,7 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
                   name={person.fullName}
                   role={person.title}
                   description={person.description}
+                  photo={person.photo?.url}
                 />
               ))}
             </div>
