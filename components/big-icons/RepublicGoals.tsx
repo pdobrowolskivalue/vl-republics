@@ -1,6 +1,6 @@
 const RepublicGoals = () => {
   return (
-    <svg width="396" height="298" viewBox="0 0 396 298" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 396 298" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clipPath="url(#clip0_495_99)">
         <path
           d="M269.598 119.073H74.8983C72.4093 119.073 70.3916 121.09 70.3916 123.579V248.614C70.3916 251.103 72.4093 253.121 74.8983 253.121H269.598C272.087 253.121 274.105 251.103 274.105 248.614V123.579C274.105 121.09 272.087 119.073 269.598 119.073Z"
