@@ -67,24 +67,33 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
   return (
     <Container>
       <PartContainer>
-        <div tw="absolute z-30 left-28 top-28 max-w-[117px] grid gap-10">
-          <Link href="/">
-            <div tw="text-sm cursor-pointer before:content-['<'] before:pr-3 before:text-4xl before:align-middle">
-              powrót
-            </div>
-          </Link>
-          {renderBadge({ republicType })}
-        </div>
-        <ContentColumn>
+        <>
+          <div tw="absolute p-2 sm:p-4 flex items-center gap-2 md:gap-4 xl:gap-10 grid-cols-2 z-30 rounded-3xl backdrop-blur -translate-x-1/2 flex-col-reverse xl:top-28 md:top-44 top-28 left-1/2 xl:flex-col xl:left-28  xl:max-w-[117px] sm:max-w-[240px] max-w-[120px]">
+            <Link href="/">
+              <div tw="hidden xl:block text-lg md:text-xl xl:text-sm cursor-pointer before:content-['<'] before:pr-3 before:text-4xl before:align-middle">
+                powrót
+              </div>
+            </Link>
+            <div>{renderBadge({ republicType })}</div>
+          </div>
+          <div tw="xl:hidden absolute top-5 left-5 bg-vlr-dark rounded-3xl p-2 px-3 z-30">
+            <Link href="/">
+              <div tw="md:text-2xl cursor-pointer before:content-['<'] before:pr-3 before:text-4xl before:align-middle">
+                powrót
+              </div>
+            </Link>
+          </div>
+        </>
+        <ContentColumn tw="z-20">
           <Block tw="max-w-[960px]">
             <SeoMotive />
           </Block>
           <Block>
-            <p tw="font-normal text-4xl leading-[60px] max-w-[846px] mx-auto mt-20 mb-7">{leadText}</p>
+            <p tw="font-normal text-4xl leading-[60px] max-w-[846px] mx-auto mt-10 mb-7">{leadText}</p>
             <p tw="font-normal text-2xl leading-9 text-vlr-accent">{leadAuthor}</p>
           </Block>
         </ContentColumn>
-        <GradientOverlay />
+        <GradientOverlay tw="z-10" />
         <Background republicType={republicType} />
       </PartContainer>
 
