@@ -14,13 +14,13 @@ const Container = tw.div`
 
 const renderIcon = ({ iconUrl }: { iconUrl: string }) => {
   switch (iconUrl) {
-    case 'RepublicStart':
+    case 'start':
       return <RepublicStart />
-    case 'RepublicWhoIsWho':
+    case 'who_is_who':
       return <RepublicWhoIsWho />
-    case 'RepublicAboutUs':
+    case 'about_us':
       return <RepublicAboutUs />
-    case 'RepublicRulesTips':
+    case 'rules_tips':
       return <RepublicRulesTips />
   }
 }
@@ -36,7 +36,7 @@ export const WelcomeCard = ({
 }) => {
   return (
     <Container>
-      <div tw="mx-auto ">{renderIcon({ iconUrl })}</div>
+      <div tw="mx-auto">{renderIcon({ iconUrl })}</div>
       <div>
         <div tw="font-medium text-[20px] leading-[36px] text-[#07062A]">{title}</div>
         <div tw="text-[14px] leading-[26px] text-[#373657] text-center">{description}</div>
