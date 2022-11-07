@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import tw from 'twin.macro'
+import tw, { styled } from 'twin.macro'
 
 import RepublicGoals from '@components/big-icons/RepublicGoals'
 import { GradientOverlay } from '@components/common/GradientOverlay'
@@ -32,6 +32,11 @@ const ContentColumn = tw.div`
 
 const Block = tw.div`
   text-center
+`
+
+const WelcomeCardsContainer = styled('div')<{ cardsAmount: number }>`
+  ${tw`flex flex-row flex-wrap gap-10 justify-center mt-4 mx-5`}
+  ${({ cardsAmount }) => (cardsAmount === 4 ? tw`max-w-[620px] 2xl:max-w-[1280px] mx-auto` : tw`max-w-[1280px]`)}
 `
 
 const RepublicLayout = ({ republic }: RepublicProps) => {
@@ -93,11 +98,11 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
             </div>
           </Block>
           <Block>
-            <div tw="flex flex-row flex-wrap gap-10 justify-center max-w-[1280px] mt-4 mx-5">
+            <WelcomeCardsContainer cardsAmount={welcomeCards.length}>
               {welcomeCards.map(card => (
                 <WelcomeCard key={card.id} title={card.title} description={card.description} iconUrl={card.iconUrl} />
               ))}
-            </div>
+            </WelcomeCardsContainer>
           </Block>
         </ContentColumn>
       </PartContainer>

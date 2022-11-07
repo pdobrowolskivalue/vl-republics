@@ -62,7 +62,7 @@ export const WhoIsWhoCard = ({
         </div>
       </div>
 
-      <div tw="text-xs sm:text-sm">{description}</div>
+      <div tw="text-xs sm:text-sm my-auto text-center md:text-left">{description}</div>
     </div>
   )
 }
