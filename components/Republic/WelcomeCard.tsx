@@ -4,6 +4,7 @@ import { RepublicStart } from '@components/big-icons/RepublicStart'
 import { RepublicWhoIsWho } from '@components/big-icons/RepublicWhoIsWho'
 import { RepublicAboutUs } from '@components/big-icons/RepublicAboutUs'
 import { RepublicRulesTips } from '@components/big-icons/RepublicRulesTips'
+import { WelcomeCardTypes } from '@type/welcomeCardTypes'
 
 const Container = tw.div`
   pt-12 pb-8 px-8
@@ -14,13 +15,13 @@ const Container = tw.div`
 
 const renderIcon = ({ iconUrl }: { iconUrl: string }) => {
   switch (iconUrl) {
-    case 'start':
+    case WelcomeCardTypes.start:
       return <RepublicStart />
-    case 'who_is_who':
+    case WelcomeCardTypes.who_is_who:
       return <RepublicWhoIsWho />
-    case 'about_us':
+    case WelcomeCardTypes.about_us:
       return <RepublicAboutUs />
-    case 'rules_tips':
+    case WelcomeCardTypes.rules_tips:
       return <RepublicRulesTips />
   }
 }
@@ -35,8 +36,8 @@ export const WelcomeCard = ({
   iconUrl: string
 }) => {
   return (
-    <Container>
-      <div tw="mx-auto">{renderIcon({ iconUrl })}</div>
+    <Container tw="">
+      <div tw="mx-auto h-[122px]">{renderIcon({ iconUrl })}</div>
       <div>
         <div tw="font-medium text-[20px] leading-[36px] text-[#07062A]">{title}</div>
         <div tw="text-[14px] leading-[26px] text-[#373657] text-center">{description}</div>
