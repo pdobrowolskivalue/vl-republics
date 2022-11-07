@@ -1,16 +1,15 @@
 import Link from 'next/link'
 import tw from 'twin.macro'
 
-import { BlockchainBadge, FrontendBadge, MLBadge, SeoBadge } from '@components/badges'
 import RepublicGoals from '@components/big-icons/RepublicGoals'
 import { GradientOverlay } from '@components/common/GradientOverlay'
 import { LinkButton } from '@components/common/LinkButton'
 import { Paragraph, ParagraphSmall, Title, TitleSmall } from '@components/common/TextStyles'
 import Footer from '@components/Footer'
-import { SeoMotive } from '@components/motives'
 import { Background } from '@components/Republic/Background'
 import MaterialCard from '@components/Republic/MaterialCard'
 import { WelcomeCard } from '@components/Republic/WelcomeCard'
+import { republics } from '@lib/consts/republics'
 import { Republics } from '@type/republic'
 import { RepublicProps } from 'pages/republic/[id]'
 
@@ -35,19 +34,6 @@ const Block = tw.div`
   text-center
 `
 
-const renderBadge = ({ republicType }: { republicType: Republics }) => {
-  switch (republicType) {
-    case Republics.seo:
-      return <SeoBadge />
-    case Republics.blockchain:
-      return <BlockchainBadge />
-    case Republics.frontend:
-      return <FrontendBadge />
-    case Republics['machine-learning']:
-      return <MLBadge />
-  }
-}
-
 const RepublicLayout = ({ republic }: RepublicProps) => {
   const {
     leadText,
@@ -68,26 +54,23 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
   return (
     <Container>
       <PartContainer>
-        <>
-          <div tw="absolute p-2 sm:p-4 flex items-center gap-2 md:gap-4 xl:gap-10 grid-cols-2 z-30 rounded-3xl backdrop-blur -translate-x-1/2 flex-col-reverse xl:top-28 md:top-44 top-28 left-1/2 xl:flex-col xl:left-28  xl:max-w-[117px] sm:max-w-[240px] max-w-[120px]">
-            <Link href="/">
-              <div tw="hidden xl:block text-lg md:text-xl xl:text-sm cursor-pointer before:content-['<'] before:pr-3 before:text-4xl before:align-middle">
-                powrót
-              </div>
-            </Link>
-            <div>{renderBadge({ republicType })}</div>
-          </div>
-          <div tw="xl:hidden absolute top-5 left-5 bg-vlr-dark rounded-3xl p-2 px-3 z-30">
-            <Link href="/">
-              <div tw="md:text-2xl cursor-pointer before:content-['<'] before:pr-3 before:text-4xl before:align-middle">
-                powrót
-              </div>
-            </Link>
-          </div>
-        </>
+        <div tw="absolute z-30 xl:left-28 left-4 xl:top-28 top-4 max-w-[117px] flex flex-col gap-10 bg-vlr-dark p-2 rounded-xl">
+          <Link href="/">
+            <div tw="text-sm md:text-xl xl:text-sm cursor-pointer before:content-['<'] before:pr-3 before:text-4xl before:align-middle">
+              powrót
+            </div>
+          </Link>
+          <div tw="hidden xl:block">{republics[republicType].badge()}</div>
+        </div>
         <ContentColumn tw="z-20">
-          <Block tw="max-w-[960px]">
-            <SeoMotive />
+          <Block tw="max-w-[960px] relative">
+            <div
+              style={{ textShadow: '0 0 30px #000' }}
+              tw="absolute md:text-6xl text-4xl font-bold top-1/2 left-1/2 z-40 -translate-x-1/2 -translate-y-1/2"
+            >
+              {republics[republicType].title}
+            </div>
+            {republics[republicType].motive()}
           </Block>
           <Block>
             <p tw="font-normal text-4xl leading-[60px] max-w-[846px] mx-auto mt-10 mb-7">{leadText}</p>
