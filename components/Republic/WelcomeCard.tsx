@@ -37,7 +37,7 @@ export const WelcomeCard = ({
 }) => {
   return (
     <Container tw="">
-      <div tw="mx-auto h-[122px]">{renderIcon({ iconUrl })}</div>
+      <div tw="mx-auto h-[122px] mb-7">{renderIcon({ iconUrl })}</div>
       <div>
         <div tw="font-medium text-[20px] leading-[36px] text-[#07062A]">{title}</div>
         <div tw="text-[14px] leading-[26px] text-[#373657] text-center">{description}</div>
