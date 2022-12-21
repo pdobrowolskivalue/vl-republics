@@ -3,10 +3,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 import tw from 'twin.macro'
 
-import { BlockchainBadge, FrontendBadge, MLBadge, SeoBadge } from '@components/badges'
+import { BlockchainBadge, FrontendBadge } from '@components/badges'
 import CardGrid from '@components/CardGrid'
 import { Container } from '@components/common/Container'
-import { LinkButton } from '@components/common/LinkButton'
 import { Main } from '@components/common/Main'
 import Footer from '@components/Footer'
 import Hero from '@components/Hero'
@@ -31,11 +30,6 @@ const Home: NextPage = () => {
       <Main>
         <Container tw="my-16">
           <div tw="mb-8 flex flex-wrap items-center justify-center">
-            <Link href={`/republic/${Republics.seo}`}>
-              <Badge tw="cursor-pointer">
-                <SeoBadge />
-              </Badge>
-            </Link>
             <Link href={`/republic/${Republics.frontend}`}>
               <Badge tw="cursor-pointer">
                 <FrontendBadge />
@@ -44,11 +38,6 @@ const Home: NextPage = () => {
             <Link href={`/republic/${Republics.blockchain}`}>
               <Badge tw="cursor-pointer">
                 <BlockchainBadge />
-              </Badge>
-            </Link>
-            <Link href={`/republic/${Republics['machine-learning']}`}>
-              <Badge tw="cursor-pointer">
-                <MLBadge />
               </Badge>
             </Link>
           </div>
@@ -60,10 +49,6 @@ const Home: NextPage = () => {
             celem w tym rozwijając technologie w firmie, upskillując osoby zainteresowane tematyką. Silnie zaznaczają
             naszą obecność w danych obszarze.
           </p>
-
-          <Link href="/about">
-            <LinkButton tw="uppercase text-vlr-accent border-vlr-accent text-[14px]">Dowiedz się więcej</LinkButton>
-          </Link>
         </Container>
 
         {Object.entries(republics).map(([k, v]) => {

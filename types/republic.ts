@@ -1,8 +1,6 @@
 export enum Republics {
   blockchain = 'blockchain',
   frontend = 'frontend',
-  seo = 'seo',
-  'machine-learning' = 'machine-learning',
 }
 
 export type RepublicData = {
