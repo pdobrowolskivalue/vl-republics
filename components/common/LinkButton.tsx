@@ -5,5 +5,6 @@ export const SmallLinkButton = tw.a`
 `
 
 export const LinkButton = tw.a`
-  border rounded-3xl py-3 px-7 text-center cursor-pointer
+  border border-vlr-accent rounded-3xl py-[10px] px-[30px] text-center cursor-pointer
+  text-vlr-accent uppercase font-semibold text-sm
 `

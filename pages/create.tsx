@@ -1,12 +1,9 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { SyntheticEvent, useRef, useState } from 'react'
 import 'twin.macro'
 
 import { Container } from '@components/common/Container'
 import { Main } from '@components/common/Main'
-
-import CreateRepublicBackground from '../assets/images/create-republic-background.webp'
 
 export default function CreateRepublic() {
   const nameInputRef = useRef<HTMLInputElement>(null)
@@ -65,13 +62,6 @@ export default function CreateRepublic() {
         <Container tw="z-10">
           <h2 tw="text-4xl">Stwórz własną Republikę!</h2>
         </Container>
-        <Image
-          src={CreateRepublicBackground}
-          alt="Stwórz własną republikę"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-        />
       </div>
 
       <Main tw=" bg-white text-vlr-dark">

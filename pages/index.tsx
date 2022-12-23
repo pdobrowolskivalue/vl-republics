@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import tw from 'twin.macro'
 
-import { BlockchainBadge, FrontendBadge } from '@components/badges'
+import { BlockchainBadge, FrontendBadge, CreateNewRepublicBadge } from '@components/badges'
 import CardGrid from '@components/CardGrid'
 import { Container } from '@components/common/Container'
 import { Main } from '@components/common/Main'
@@ -11,6 +11,7 @@ import Footer from '@components/Footer'
 import Hero from '@components/Hero'
 import { republics } from '@lib/consts/republics'
 import { Republics } from '@type/republic'
+import { whatCanIInRepublic, whatDoesGiveRepublic } from '@lib/consts/cards'
 
 const Badge = tw.div`
   m-4 w-28
@@ -28,7 +29,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Main>
-        <Container tw="my-16">
+        <Container>
           <div tw="mb-8 flex flex-wrap items-center justify-center">
             <Link href={`/republic/${Republics.frontend}`}>
               <Badge tw="cursor-pointer">
@@ -38,6 +39,11 @@ const Home: NextPage = () => {
             <Link href={`/republic/${Republics.blockchain}`}>
               <Badge tw="cursor-pointer">
                 <BlockchainBadge />
+              </Badge>
+            </Link>
+            <Link href="#create-new-republic">
+              <Badge tw="cursor-pointer">
+                <CreateNewRepublicBadge />
               </Badge>
             </Link>
           </div>
@@ -55,9 +61,11 @@ const Home: NextPage = () => {
           return <Hero key={k} id={k} {...v} />
         })}
 
-        <Container tw="my-16" fluid>
-          <h2 tw="text-4xl text-center font-semibold mb-16">Co mogę w ramach republik?</h2>
-          <CardGrid />
+        <Container tw="mt-16" fluid>
+          <h2 tw="text-4xl text-center font-semibold mb-16">{whatCanIInRepublic.title}</h2>
+          <CardGrid data={Object.entries(whatCanIInRepublic.cards)} />
+          <h2 tw="text-4xl text-center font-semibold mb-16 mt-16">{whatDoesGiveRepublic.title}</h2>
+          <CardGrid data={Object.entries(whatDoesGiveRepublic.cards)} />
         </Container>
       </Main>
 
