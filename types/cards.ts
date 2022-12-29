@@ -3,4 +3,8 @@ export enum Cards {
   access = 'access',
   create = 'create',
   honors = 'honors',
+  knowledge = 'knowledge',
+  challenges = 'challenges',
+  events = 'events',
+  integration = 'integration',
 }
