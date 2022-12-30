@@ -3,7 +3,7 @@ import VideoIcon from '@assets/images/file-type-icons/video-file.png'
 import GoogleSlidesIcon from '@assets/images/file-type-icons/google-slides.png'
 import { FileTypes } from '@type/fileTypes'
 
-export const fileData: { [key: string]: any } = {
+export const fileData: { [key: string]: { name: string; image: any } } = {
   [FileTypes.google_doc]: {
     name: 'Google doc',
     image: GoogleDocIcon,
