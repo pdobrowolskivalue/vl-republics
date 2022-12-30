@@ -7,7 +7,7 @@ const Grid = tw.div`
 
 const Card = tw.div`
   p-5 flex flex-row items-center gap-5
-  border border-solid border-vlr-mild bg-vlr-backdrop max-w-[540px] rounded-2xl
+  border border-solid border-vlr-mild bg-vlr-accent/5 max-w-[540px] rounded-2xl
   [> div]:(min-w-[103px] min-h-[120px])
   [> p]:(m-0 text-center md:text-left)
 
