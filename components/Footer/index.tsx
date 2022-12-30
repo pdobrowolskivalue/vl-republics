@@ -11,8 +11,7 @@ const Footer = () => {
   const [inputs, setInputs] = useState(initialState)
 
   const handleChange = (event: any) => {
-    const name = event.target.name
-    const value = event.target.value
+    const { name, value } = event.target
     setInputs(values => ({ ...values, [name]: value }))
   }
 

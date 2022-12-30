@@ -17,7 +17,7 @@ export default async function (req: any, res: any) {
     to: req.body.email,
     subject: `Propozycja założenia nowej republiki '${req.body.republicName}' od ${req.body.name}`,
     text: req.body.description,
-    html: `<div>${req.body.description}</div><p>Sent from: ${req.body.email}</p>`,
+    html: `<div>${req.body.description}</div><p>Wysłane od: ${req.body.email}</p>`,
   }
 
   await transporter.sendMail(mailData, function (err, info) {
