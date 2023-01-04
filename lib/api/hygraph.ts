@@ -63,14 +63,15 @@ const GET_REPUBLIC = `
       }
       reachedGoals
       currentGoals
-      files {
-        ...on File {
-          id
-          title
-          author
-          date
-          type
-          url
+      linksSections {
+        ... on LinksSection {
+          sectionTitle
+          links {
+            ...on Link {
+              text
+              url
+            }
+          }
         }
       }
     }

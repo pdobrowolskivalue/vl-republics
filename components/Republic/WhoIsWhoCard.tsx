@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { styled } from 'twin.macro'
 
 import { Honors } from '@components/big-icons'
+import { BlurCardContainer } from '@components/Republic/BlurCardContainer'
 
 import ImageFrame from '../../assets/images/frame.png'
 
@@ -24,11 +25,7 @@ export const WhoIsWhoCard = ({
   photo?: string
 }) => {
   return (
-    <div
-      tw="flex text-left py-6 border-solid border-[1px] border-vlr-accent/20 rounded-lg backdrop-blur-sm
-    px-8 sm:px-14
-    flex-col md:flex-row gap-10 lg:gap-20"
-    >
+    <BlurCardContainer tw="flex">
       <div
         tw="flex items-center justify-center
       gap-10 lg:gap-20"
@@ -63,6 +60,6 @@ export const WhoIsWhoCard = ({
       </div>
 
       <div tw="text-xs sm:text-sm my-auto text-center md:text-left">{description}</div>
-    </div>
+    </BlurCardContainer>
   )
 }

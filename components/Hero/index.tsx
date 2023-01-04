@@ -34,7 +34,7 @@ const Hero = ({ id, title, motive: Motive, background }: HeroProps) => {
     <HeroStyled>
       <h1
         css={[
-          tw`z-50 font-weight[600] text-shadow[0 8px 15px rgb(0 0 0)] text-center`,
+          tw`z-50 font-semibold [text-shadow:0 8px 15px rgb(0 0 0)] text-center`,
           id === 'create-new-republic' ? tw`text-4xl` : tw`text-6xl`,
         ]}
       >
