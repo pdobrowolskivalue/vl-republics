@@ -15,7 +15,18 @@ export type RepublicData = {
   persons: Person[]
   reachedGoals: string
   currentGoals: string
-  files: File[]
+  linksSections: LinksSection[]
+}
+
+export type LinksSection = {
+  sectionTitle: string
+  links: Link[]
+}
+
+export type Link = {
+  text: string
+  label: string
+  url: string
 }
 
 export type Person = {
@@ -33,13 +44,4 @@ export type WelcomeCard = {
   title: string
   description: string
   iconUrl: string
-}
-
-export type File = {
-  id: string
-  title: string
-  author: string
-  type: string
-  date: string
-  url: string
 }
