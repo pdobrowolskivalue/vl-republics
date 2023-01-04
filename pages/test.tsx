@@ -16,7 +16,7 @@ const Card = tw.a`
   active:(text-vlr-accent border-vlr-accent)
 
   [> h2]:(m-[0 0 1rem 0] text-2xl font-extrabold)
-  [> p]:(m-0 text-[1.25rem] line-height[1.5])
+  [> p]:(m-0 text-[1.25rem] [line-height:1.5])
 
   transition-colors duration-150
 
