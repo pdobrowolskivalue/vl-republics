@@ -23,7 +23,7 @@ const CardGrid = ({ data }: { data: dataType[] }) => {
     <Grid>
       {data.map(([key, { icon: Icon, description }]) => (
         <Card key={key}>
-          <div tw="flex justify-center items-center">
+          <div tw="leading-[21px] flex justify-center items-center">
             <Icon />
           </div>
           <p>{description}</p>

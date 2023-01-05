@@ -5,7 +5,8 @@ const CustomStyles = createGlobalStyle({
   body: {
     ...tw`
       antialiased
-      text-white bg-vlr-dark
+      font-inter text-sm text-white
+      bg-vlr-dark
     `,
   },
   input: {
@@ -17,8 +18,8 @@ const CustomStyles = createGlobalStyle({
 const GlobalStyles = () => {
   return (
     <>
-      <CustomStyles />
       <BaseStyles />
+      <CustomStyles />
     </>
   )
 }

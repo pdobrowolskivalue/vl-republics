@@ -1,29 +1,29 @@
 import Image from 'next/image'
 import tw from 'twin.macro'
 
-import { Republics } from '@type/republic'
+import Welcome from '../../assets/images/republic-welcome-background.png'
+import Materials from '../../assets/images/republic-materials-background.png'
+import WhoIsWho from '../../assets/images/republic-who-is-who-background.png'
 
-import BlockchainBackground from '../../assets/images/blockchain-background.webp'
-import FrontendBackground from '../../assets/images/frontend-background.webp'
+export enum ERepublicBackground {
+  welcome,
+  materials,
+  'who-is-who',
+}
 
 const republicBackground = {
-  [Republics.blockchain]: BlockchainBackground,
-  [Republics.frontend]: FrontendBackground,
+  [ERepublicBackground.welcome]: Welcome,
+  [ERepublicBackground.materials]: Materials,
+  [ERepublicBackground['who-is-who']]: WhoIsWho,
 }
 
 const ColorOverlay = tw.div`absolute inset-0 bg-vlr-dark/40 z-10`
 
-export const Background = ({ republicType, useOverlay = false }: { republicType: Republics; useOverlay?: boolean }) => {
+export const Background = ({ type, useOverlay = false }: { type: ERepublicBackground; useOverlay?: boolean }) => {
   return (
     <div>
       {useOverlay && <ColorOverlay />}
-      <Image
-        src={republicBackground[republicType]}
-        alt="background"
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
-      />
+      <Image src={republicBackground[type]} alt="background" layout="fill" objectFit="cover" objectPosition="center" />
     </div>
   )
 }

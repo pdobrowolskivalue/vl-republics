@@ -17,6 +17,11 @@ module.exports = {
     fontFamily: {
       ...defaultTheme.fontFamily,
       sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+      poppins: ['Poppins', 'sans-serif'],
+      inter: ['Inter', 'sans-serif'],
     },
+  },
+  corePlugins: {
+    preflight: false,
   },
 }

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import { Container } from '@components/common/Container'
-import { LinkButton } from '@components/common/LinkButton'
+import { LinkButton } from '@components/common/ButtonStyle'
 import { Main } from '@components/common/Main'
 import 'twin.macro'
 

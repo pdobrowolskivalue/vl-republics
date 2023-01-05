@@ -1,10 +1,15 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import tw from 'twin.macro'
 
 import { Container } from '@components/common/Container'
-import { CustomButton, LinkButton } from '@components/common/LinkButton'
+import { CustomButton, LinkButton } from '@components/common/ButtonStyle'
+import { Paragraph, Title } from '@components/common/TextStyles'
+
+import { FormField } from './FormField'
 
 const Footer = () => {
+  const createNewRepublicForm = useRef<null | HTMLDivElement>(null)
+
   const initialState = { name: '', email: '', republicName: '', description: '' }
 
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -15,8 +20,12 @@ const Footer = () => {
     setInputs(values => ({ ...values, [name]: value }))
   }
 
-  const openProposeNewRepublicForm = () => {
+  const delay = (ms: any) => new Promise(resolve => setTimeout(resolve, ms))
+
+  const openProposeNewRepublicForm = async () => {
     setIsFormOpen(!isFormOpen)
+    await delay(1)
+    createNewRepublicForm.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const proposeNewRepublic = (event: any) => {
@@ -38,16 +47,16 @@ const Footer = () => {
     <div>
       <div id="create-new-republic" tw="relative w-full flex items-center justify-center py-16">
         <Container tw="z-10 mx-5">
-          <h2 tw="text-4xl text-center font-semibold">Stwórz własną Republikę!</h2>
-          <p tw="my-8">
+          <Title tw="mb-10">Stwórz własną Republikę!</Title>
+          <Paragraph tw="text-white my-8">
             Consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
             ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut
             labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,{' '}
-          </p>
+          </Paragraph>
           <LinkButton onClick={openProposeNewRepublicForm}>Napisz do nas</LinkButton>
         </Container>
       </div>
-      <div css={isFormOpen ? tw`block` : tw`hidden`}>
+      <div ref={createNewRepublicForm} css={isFormOpen ? tw`block` : tw`hidden`}>
         <form
           onSubmit={e => {
             proposeNewRepublic(e)
@@ -57,53 +66,23 @@ const Footer = () => {
           <div tw="max-w-[1100px] w-full h-full">
             <div tw="w-full flex flex-col md:flex-row gap-5">
               <div tw="w-full flex flex-col gap-5">
-                <div tw="w-full">
-                  <label htmlFor="name" tw="inline-block mb-3">
-                    Imię
-                  </label>
-                  <input
-                    name="name"
-                    value={inputs.name}
-                    onChange={handleChange}
-                    tw="w-full border border-vlr-accent/50 rounded bg-vlr-dark p-4"
-                  />
-                </div>
-                <div tw="w-full">
-                  <label htmlFor="email" tw="inline-block mb-3">
-                    Adres e-mail
-                  </label>
-                  <input
-                    name="email"
-                    value={inputs.email}
-                    onChange={handleChange}
-                    tw="w-full border border-vlr-accent/50 rounded bg-vlr-dark p-4"
-                  />
-                </div>
+                <FormField name="name" label="Imię" value={inputs.name} handleChange={handleChange} />
+                <FormField name="email" label="Adres e-mail" value={inputs.email} handleChange={handleChange} />
               </div>
               <div tw="w-full flex flex-col gap-5">
-                <div tw="w-full">
-                  <label htmlFor="republicName" tw="inline-block mb-3">
-                    Nazwa republiki
-                  </label>
-                  <input
-                    name="republicName"
-                    value={inputs.republicName}
-                    onChange={handleChange}
-                    tw="w-full border border-vlr-accent/50 rounded bg-vlr-dark p-4"
-                  />
-                </div>
-                <div tw="w-full">
-                  <label htmlFor="description" tw="inline-block mb-3">
-                    Krótki opis
-                  </label>
-                  <textarea
-                    name="description"
-                    value={inputs.description}
-                    onChange={handleChange}
-                    rows={6}
-                    tw="w-full border border-vlr-accent/50 rounded bg-vlr-dark p-4 overflow-hidden resize-none"
-                  />
-                </div>
+                <FormField
+                  name="republicName"
+                  label="Nazwa republiki"
+                  value={inputs.republicName}
+                  handleChange={handleChange}
+                />
+                <FormField
+                  textarea={true}
+                  name="description"
+                  label="Krótki opis"
+                  value={inputs.description}
+                  handleChange={handleChange}
+                />
               </div>
             </div>
             <CustomButton type="submit" tw="float-right mt-4">
