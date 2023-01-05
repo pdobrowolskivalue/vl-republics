@@ -13,17 +13,13 @@ const CustomStyles = createGlobalStyle({
     '-webkit-text-fill-color': 'white',
     '-webkit-box-shadow': '0 0 0px 1000px hsl(242, 75%, 9%) inset',
   },
-  button: {},
-  // button[type='submit']: {
-  //   'color': 'red',
-  // },
 })
 
 const GlobalStyles = () => {
   return (
     <>
-      <CustomStyles />
       <BaseStyles />
+      <CustomStyles />
     </>
   )
 }
