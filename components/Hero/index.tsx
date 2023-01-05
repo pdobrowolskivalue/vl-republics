@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import tw from 'twin.macro'
 
-import { LinkButton } from '@components/common/LinkButton'
+import { LinkButton } from '@components/common/ButtonStyle'
 
 type HeroProps = {
   id: string
@@ -34,15 +34,17 @@ const Hero = ({ id, title, motive: Motive, background }: HeroProps) => {
     <HeroStyled>
       <h1
         css={[
-          tw`z-50 font-semibold [text-shadow:0 8px 15px rgb(0 0 0)] text-center`,
-          id === 'create-new-republic' ? tw`text-4xl` : tw`text-6xl`,
+          tw`font-poppins font-semibold text-[64px] leading-[96px] z-50 [text-shadow:0 8px 15px rgb(0 0 0)]`,
+          id === 'create-new-republic' ? tw`text-[42px] leading-[63px]` : tw`text-[64px] leading-[96px]`,
         ]}
       >
         {title}
       </h1>
       <LayersStyled>
         <Link className="full-cover" href={id === 'create-new-republic' ? '#create-new-republic' : `/republic/${id}`}>
-          <LinkButton tw="z-40 bottom-14 absolute left-[50%] translate-x-[-50%]">Dowiedz się więcej</LinkButton>
+          <LinkButton tw="z-40 bottom-14 absolute left-[50%] translate-x-[-50%]">
+            {id === 'create-new-republic' ? 'Zaproponuj republikę' : 'Dowiedz się więcej'}
+          </LinkButton>
         </Link>
         <GradientOverlay className="full-cover" tw="z-30" />
         <div className="full-cover" tw="z-20 px-5 md:px-0 max-w-[738px] mx-auto">

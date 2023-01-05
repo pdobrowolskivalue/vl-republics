@@ -19,7 +19,7 @@ export const republics = {
     background: FrontendBackground,
   },
   ['create-new-republic']: {
-    title: 'Stwórz nową Republikę',
+    title: 'Stwórz nową republikę',
     badge: CreateNewRepublicBadge,
     motive: CreateNewRepublicMotive,
     background: CreateNewRepublicBackground,

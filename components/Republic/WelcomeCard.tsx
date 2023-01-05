@@ -39,10 +39,10 @@ export const WelcomeCard = ({
     <Container tw="">
       <div tw="mx-auto h-[122px] mb-7">{renderIcon({ iconUrl })}</div>
       <div>
-        <div tw="font-medium text-base leading-[28px] text-vlr-dark mb-5 overflow-hidden [display: -webkit-box] [-webkit-box-orient: vertical] [-webkit-line-clamp: 2]">
+        <div tw="font-poppins font-medium text-[16px] leading-[28px] text-vlr-dark mb-5 overflow-hidden [display: -webkit-box] [-webkit-box-orient: vertical] [-webkit-line-clamp: 2]">
           {title}
         </div>
-        <div tw="text-sm leading-[26px] text-vlr-text-shade-of-dark">{description}</div>
+        <div tw="leading-[26px] text-vlr-text-shade-of-dark">{description}</div>
       </div>
     </Container>
   )

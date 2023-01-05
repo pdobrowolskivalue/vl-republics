@@ -21,18 +21,18 @@ type Link = {
 
 export const LinksCards = ({ sectionsIndex, linksSections }: linksSections) => {
   return (
-    <div tw="w-1/2 flex flex-col space-y-5">
+    <div tw="md:w-1/2 flex flex-col space-y-5">
       {linksSections.map(
         (section, index) =>
           index % 2 === +(sectionsIndex === 'odd') && (
             <BlurCardContainer key={index}>
-              <div tw="font-semibold text-xl mb-[18px]">{section.sectionTitle}</div>
+              <div tw="font-poppins font-semibold text-[20px] leading-[26px] mb-[18px]">{section.sectionTitle}</div>
               <div tw="space-y-4">
                 {section.links.map((link, index) => (
-                  <div key={index} tw="text-sm">
+                  <div key={index}>
                     <div tw="inline mr-1">{link.text}</div>
                     <a
-                      tw="inline font-semibold text-vlr-accent break-words"
+                      tw="font-semibold text-vlr-accent inline break-words"
                       target="_blank"
                       href={link.url}
                       rel="noreferrer"

@@ -26,10 +26,7 @@ export const WhoIsWhoCard = ({
 }) => {
   return (
     <BlurCardContainer tw="flex">
-      <div
-        tw="flex items-center justify-center
-      gap-10 lg:gap-20"
-      >
+      <div tw="flex items-center justify-center gap-10 lg:gap-20">
         <div tw="w-[88px]">
           {photo ? (
             <div tw="top-[-4px] relative">
@@ -49,17 +46,12 @@ export const WhoIsWhoCard = ({
           )}
         </div>
         <div tw="md:w-[200px]">
-          <div tw="text-xs sm:text-sm">{role}</div>
-          <div
-            tw="font-medium
-          text-lg sm:text-[22px]"
-          >
-            {name}
-          </div>
+          <div tw="font-poppins font-medium leading-[21px] text-vlr-accent">{role}</div>
+          <div tw="font-poppins font-medium text-[20px] leading-[30px]">{name}</div>
         </div>
       </div>
 
-      <div tw="text-xs sm:text-sm my-auto text-center md:text-left">{description}</div>
+      <div tw="leading-[24px] my-auto">{description}</div>
     </BlurCardContainer>
   )
 }
