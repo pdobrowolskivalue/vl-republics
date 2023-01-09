@@ -42,12 +42,12 @@ const Hero = ({ id, title, motive: Motive, background }: HeroProps) => {
       </h1>
       <LayersStyled>
         <Link className="full-cover" href={id === 'create-new-republic' ? '#create-new-republic' : `/republic/${id}`}>
-          <LinkButton tw="z-40 bottom-14 absolute left-[50%] translate-x-[-50%]">
+          <LinkButton tw="z-40 bottom-[74px] absolute left-[50%] translate-x-[-50%]">
             {id === 'create-new-republic' ? 'Zaproponuj republikę' : 'Dowiedz się więcej'}
           </LinkButton>
         </Link>
         <GradientOverlay className="full-cover" tw="z-30" />
-        <div className="full-cover" tw="z-20 px-5 md:px-0 max-w-[738px] mx-auto">
+        <div className="full-cover" tw="z-20 px-5 md:px-0 max-w-[815px] mx-auto">
           <Motive />
         </div>
         <div className="full-cover" tw="z-10">

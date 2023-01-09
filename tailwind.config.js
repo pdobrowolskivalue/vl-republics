@@ -20,6 +20,10 @@ module.exports = {
       poppins: ['Poppins', 'sans-serif'],
       inter: ['Inter', 'sans-serif'],
     },
+    screens: {
+      xs: '425px',
+      ...defaultTheme.screens,
+    },
   },
   corePlugins: {
     preflight: false,

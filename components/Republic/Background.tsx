@@ -17,13 +17,24 @@ const republicBackground = {
   [ERepublicBackground['who-is-who']]: WhoIsWho,
 }
 
-const ColorOverlay = tw.div`absolute inset-0 bg-vlr-dark/40 z-10`
+const ColorOverlay = tw.div`
+  absolute inset-0 z-10
+  bg-gradient-to-b from-transparent via-transparent to-vlr-dark
+`
 
 export const Background = ({ type, useOverlay = false }: { type: ERepublicBackground; useOverlay?: boolean }) => {
   return (
     <div>
       {useOverlay && <ColorOverlay />}
-      <Image src={republicBackground[type]} alt="background" layout="fill" objectFit="cover" objectPosition="center" />
+      <div>
+        <Image
+          src={republicBackground[type]}
+          alt="background"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+        />
+      </div>
     </div>
   )
 }

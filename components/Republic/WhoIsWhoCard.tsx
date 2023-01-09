@@ -26,8 +26,8 @@ export const WhoIsWhoCard = ({
 }) => {
   return (
     <BlurCardContainer tw="flex">
-      <div tw="flex items-center justify-center gap-10 lg:gap-20">
-        <div tw="w-[88px]">
+      <div tw="flex flex-col xs:flex-row xs:items-center justify-center gap-10 lg:gap-20">
+        <div tw="w-[88px] mx-auto xs:mx-0">
           {photo ? (
             <div tw="top-[-4px] relative">
               <div tw="h-[84px] w-[80px]">

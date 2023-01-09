@@ -2,7 +2,6 @@ import Link from 'next/link'
 import tw, { styled } from 'twin.macro'
 
 import RepublicGoals from '@components/big-icons/RepublicGoals'
-import { GradientOverlay } from '@components/common/GradientOverlay'
 import { Paragraph, Title } from '@components/common/TextStyles'
 import Footer from '@components/Footer'
 import { Background, ERepublicBackground } from '@components/Republic/Background'
@@ -57,7 +56,7 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
               powrót
             </div>
           </Link>
-          <div tw="w-16 h-full">{republics[republicType].badge()}</div>
+          <div tw="w-24 h-full">{republics[republicType].badge()}</div>
         </div>
         <ContentColumn tw="z-20 pb-0 text-center">
           <div tw="max-w-[960px] relative mx-auto">{republics[republicType].motive()}</div>
@@ -66,14 +65,13 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
             <p tw="font-poppins  text-[16px] leading-[24px] mb-9">{leadAuthor}</p>
           </div>
         </ContentColumn>
-        <GradientOverlay tw="z-10" />
-        <Background type={ERepublicBackground.welcome} />
+        <Background useOverlay={true} type={ERepublicBackground.welcome} />
       </PartContainer>
 
       <PartContainer tw="bg-vlr-bg-light">
         <ContentColumn>
           <Title tw="text-vlr-dark">{welcomeHeader}</Title>
-          <Paragraph tw="mb-20 columns-2 gap-4">{welcomeDescription}</Paragraph>
+          <Paragraph tw="mb-20 xs:columns-2 gap-4">{welcomeDescription}</Paragraph>
           <WelcomeCardsContainer cardsAmount={welcomeCards.length}>
             {welcomeCards.map(card => (
               <WelcomeCard key={card.id} title={card.title} description={card.description} iconUrl={card.iconUrl} />
@@ -104,7 +102,7 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
       <PartContainer tw="bg-vlr-bg-light text-vlr-dark">
         <ContentColumn>
           <div tw="flex flex-col lg:flex-row gap-20 lg:gap-40">
-            <div tw="min-w-[400px] m-auto">
+            <div tw="w-full max-w-[400px] lg:min-w-[400px] m-auto">
               <RepublicGoals />
             </div>
             <div tw="">

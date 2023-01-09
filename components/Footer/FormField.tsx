@@ -14,7 +14,7 @@ export const FormField = ({
   handleChange: any
 }) => {
   return (
-    <div tw="w-full">
+    <div tw="flex flex-col">
       <label htmlFor={name} tw="font-medium  leading-[17px] inline-block mb-3">
         {label}
       </label>
@@ -23,7 +23,7 @@ export const FormField = ({
           name={name}
           value={value}
           onChange={handleChange}
-          tw="w-full border border-vlr-accent/50 rounded bg-vlr-dark p-4"
+          tw="border border-vlr-accent/50 rounded bg-vlr-dark p-4"
         />
       ) : (
         <textarea
@@ -31,7 +31,7 @@ export const FormField = ({
           value={value}
           onChange={handleChange}
           rows={6}
-          tw="w-full border border-vlr-accent/50 rounded bg-vlr-dark p-4 overflow-hidden resize-none"
+          tw="border border-vlr-accent/50 rounded bg-vlr-dark p-4 overflow-hidden resize-none"
         />
       )}
     </div>
