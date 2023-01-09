@@ -5,6 +5,7 @@ const CustomStyles = createGlobalStyle({
   body: {
     ...tw`
       antialiased
+      m-0
       font-inter text-sm text-white
       bg-vlr-dark
     `,
