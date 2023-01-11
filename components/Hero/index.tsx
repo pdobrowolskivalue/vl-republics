@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import tw from 'twin.macro'
 
-import { LinkButton } from '@components/common/ButtonStyle'
+import { LinkButton } from '@components/common/ButtonAndTagStyle'
 
 type HeroProps = {
   id: string
@@ -50,7 +50,7 @@ const Hero = ({ id, title, motive: Motive, background }: HeroProps) => {
         <div className="full-cover" tw="z-20 px-5 md:px-0 max-w-[815px] mx-auto">
           <Motive />
         </div>
-        <div className="full-cover" tw="z-10">
+        <div className="full-cover" tw="z-10 opacity-50">
           <Image src={background} alt="background" layout="fill" objectFit="cover" objectPosition="center" />
         </div>
       </LayersStyled>

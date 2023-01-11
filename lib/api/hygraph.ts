@@ -63,12 +63,22 @@ const GET_REPUBLIC = `
       }
       reachedGoals
       currentGoals
+      informations {
+        ... on Information {
+          tag
+          category
+          title
+          description
+          url
+        }
+      }
       linksSections {
         ... on LinksSection {
           sectionTitle
           links {
             ...on Link {
               text
+              label
               url
             }
           }

@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import tw from 'twin.macro'
 
 import { Container } from '@components/common/Container'
-import { CustomButton, LinkButton } from '@components/common/ButtonStyle'
+import { CustomButton, LinkButton } from '@components/common/ButtonAndTagStyle'
 import { Paragraph, Title } from '@components/common/TextStyles'
 
 import { FormField } from './FormField'
