@@ -64,7 +64,7 @@ const RepublicLayout = ({ republic }: RepublicProps) => {
           <div tw="w-24 h-full w-full">{republics[republicType].badge()}</div>
         </div>
         <ContentColumn tw="z-20 pb-0 text-center">
-          <div tw="max-w-[960px] relative mx-auto">{republics[republicType].motive()}</div>
+          <div tw="max-w-[960px] relative h-[457px] mx-auto">{republics[republicType].motive()}</div>
           <div>
             <p tw="font-poppins font-medium text-[24px] leading-[36px] mt-7 mb-4">{leadText}</p>
             <p tw="font-poppins  text-[16px] leading-[24px] mb-9">{leadAuthor}</p>

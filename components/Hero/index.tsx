@@ -14,13 +14,12 @@ type HeroProps = {
 
 const HeroStyled = tw.div`
   relative w-full flex items-center justify-center
-  border-t border-t-vlr-accent/30
 
   [> h2]:(text-center)
 `
 
 const LayersStyled = tw.div`
-  h-[520px]
+  h-[505px]
   [> div]:(absolute flex items-center justify-center)
   [> .full-cover]:(inset-0)
 `
@@ -41,16 +40,18 @@ const Hero = ({ id, title, motive: Motive, background }: HeroProps) => {
         {title}
       </h1>
       <LayersStyled>
-        <Link className="full-cover" href={id === 'create-new-republic' ? '#create-new-republic' : `/republic/${id}`}>
+        <Link tw="inset-0" href={id === 'create-new-republic' ? '#create-new-republic' : `/republic/${id}`}>
           <LinkButton tw="z-40 bottom-[74px] absolute left-[50%] translate-x-[-50%]">
             {id === 'create-new-republic' ? 'Zaproponuj republikę' : 'Dowiedz się więcej'}
           </LinkButton>
         </Link>
-        <GradientOverlay className="full-cover" tw="z-30" />
-        <div className="full-cover" tw="z-20 px-5 md:px-0 max-w-[815px] mx-auto">
+        <GradientOverlay tw="inset-0 z-30" />
+
+        <div tw="inset-0 z-20 my-[22px]">
           <Motive />
         </div>
-        <div className="full-cover" tw="z-10 opacity-50">
+
+        <div tw="inset-0 absolute z-10 opacity-50">
           <Image src={background} alt="background" layout="fill" objectFit="cover" objectPosition="center" />
         </div>
       </LayersStyled>
