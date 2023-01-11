@@ -26,7 +26,7 @@ export const Background = ({ type, useOverlay = false }: { type: ERepublicBackgr
   return (
     <div>
       {useOverlay && <ColorOverlay />}
-      <div>
+      <div tw="opacity-50">
         <Image
           src={republicBackground[type]}
           alt="background"

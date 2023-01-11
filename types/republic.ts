@@ -15,7 +15,16 @@ export type RepublicData = {
   persons: Person[]
   reachedGoals: string
   currentGoals: string
+  informations: Information[]
   linksSections: LinksSection[]
+}
+
+export type Information = {
+  tag: string
+  category: string
+  title: string
+  description: string
+  url: string
 }
 
 export type LinksSection = {
